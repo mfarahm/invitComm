@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دعوة مناقشة رسالة دكتوراه – محمد فرح محمد متولي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&family=Rajdhani:wght@700&family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #097f82;
+  --gold: #a28615;
+  --mint: #c4efe6;
+  --teal-dark: #065a5d;
+  --teal-light: #0ba8ac;
+  --gold-light: #d4af3a;
+  --gold-dark: #7a6410;
+  --bg-deep: #030f10;
+  --bg-mid: #051a1b;
+  --text-light: #e8f8f7;
+  --text-dim: #8ecfcd;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Cairo',sans-serif;
+  background:var(--bg-deep);
+  color:var(--text-light);
+  overflow-x:hidden;
+  min-height:100vh;
+}
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(9,127,130,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(9,127,130,.07) 1px,transparent 1px);
+  background-size:40px 40px;
+  animation:gridMove 20s linear infinite;
+  pointer-events:none;
+  z-index:0;
+}
+@keyframes gridMove{0%{background-position:0 0}100%{background-position:40px 40px}}
+
+.neural-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.neural-dot{position:absolute;border-radius:50%;background:var(--teal);opacity:.15;animation:floatDot linear infinite;}
+@keyframes floatDot{0%{transform:translateY(110vh) scale(0);opacity:0}10%{opacity:.15}90%{opacity:.15}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+
+.ai-circuit{position:fixed;top:0;right:0;width:280px;height:280px;pointer-events:none;z-index:0;opacity:.05;}
+
+.page-wrapper{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:20px 16px 60px;}
+
+/* ── HEADER ── */
+.header-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 28px;
+  background:linear-gradient(135deg,rgba(9,127,130,.22),rgba(5,26,27,.9));
+  border:1px solid rgba(9,127,130,.4);
+  border-radius:18px;
+  margin-bottom:8px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 40px rgba(9,127,130,.15),inset 0 1px 0 rgba(196,239,230,.1);
+}
+.uni-info{text-align:right;}
+.uni-info .uni-name{font-family:'Amiri',serif;font-size:1.3rem;font-weight:700;color:var(--gold-light);line-height:1.7;text-shadow:0 0 20px rgba(162,134,21,.5);}
+.uni-info .uni-sub{font-size:.82rem;color:var(--text-dim);line-height:1.7;}
+.logos{display:flex;gap:14px;align-items:center;}
+
+/* ── Logo Circles with Glow ── */
+.logo-circle{
+  width:86px;height:86px;border-radius:50%;
+  border:2px solid var(--teal);
+  overflow:hidden;position:relative;
+  box-shadow:0 0 0 4px rgba(9,127,130,.15),
+             0 0 20px rgba(9,127,130,.35),
+             0 0 40px rgba(9,127,130,.15);
+  animation:logoPulse 3s ease-in-out infinite;
+  cursor:pointer;
+}
+.logo-circle.gold-ring{
+  border-color:var(--gold-light);
+  box-shadow:0 0 0 4px rgba(162,134,21,.12),
+             0 0 20px rgba(162,134,21,.4),
+             0 0 40px rgba(162,134,21,.15);
+  animation:logoPulseGold 3s ease-in-out infinite;
+}
+.logo-circle img{width:100%;height:100%;object-fit:cover;display:block;}
+.logo-circle .shine{
+  position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(transparent 0deg,rgba(255,255,255,.12) 60deg,transparent 120deg);
+  animation:shineRotate 4s linear infinite;
+}
+@keyframes logoPulse{0%,100%{box-shadow:0 0 0 4px rgba(9,127,130,.15),0 0 20px rgba(9,127,130,.35)}50%{box-shadow:0 0 0 6px rgba(9,127,130,.25),0 0 35px rgba(9,127,130,.7),0 0 60px rgba(9,127,130,.2)}}
+@keyframes logoPulseGold{0%,100%{box-shadow:0 0 0 4px rgba(162,134,21,.12),0 0 20px rgba(162,134,21,.4)}50%{box-shadow:0 0 0 6px rgba(162,134,21,.22),0 0 35px rgba(162,134,21,.7),0 0 60px rgba(162,134,21,.2)}}
+@keyframes shineRotate{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+/* ── INVITATION TITLE IMAGE ── */
+.invite-title-wrap{text-align:center;padding:24px 0 14px;}
+.invite-img{max-width:200px;width:90%;height:auto;display:inline-block;}
+
+/* ── ANNOUNCEMENT ── */
+.announcement{
+  background:linear-gradient(135deg,rgba(9,127,130,.15),rgba(5,26,27,.6));
+  border:1px solid rgba(9,127,130,.3);
+  border-radius:14px;
+  padding:24px 32px;
+  text-align:center;
+  margin-bottom:14px;
+  position:relative;overflow:hidden;
+}
+.announcement::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(transparent 0deg,rgba(9,127,130,.04) 60deg,transparent 120deg);animation:rotateBg 15s linear infinite;}
+@keyframes rotateBg{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.announcement p{position:relative;font-size:1.05rem;line-height:2.1;color:var(--mint);}
+
+/* ── THESIS CARD ── */
+.thesis-card{
+  background:linear-gradient(135deg,rgba(162,134,21,.12),rgba(9,127,130,.08));
+  border:2px solid var(--gold);
+  border-radius:18px;
+  padding:28px 36px;
+  text-align:center;
+  margin:14px 0;
+  position:relative;
+  box-shadow:0 0 40px rgba(162,134,21,.15),inset 0 0 60px rgba(162,134,21,.04);
+}
+.thesis-card::before,.thesis-card::after{content:'';position:absolute;width:60px;height:60px;border-color:var(--teal-light);border-style:solid;}
+.thesis-card::before{top:-1px;right:-1px;border-width:2px 2px 0 0;border-radius:0 18px 0 0;}
+.thesis-card::after{bottom:-1px;left:-1px;border-width:0 0 2px 2px;border-radius:0 0 0 18px;}
+.thesis-label{font-size:.88rem;color:var(--teal-light);letter-spacing:3px;margin-bottom:14px;font-family:'Orbitron',sans-serif;}
+.thesis-title{font-family:'Amiri',serif;font-size:1.55rem;font-weight:700;color:#fff;line-height:1.9;text-shadow:0 2px 20px rgba(162,134,21,.3);}
+.thesis-title .highlight{color:var(--gold-light);text-shadow:0 0 20px rgba(162,134,21,.6);}
+.chatbot-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,var(--teal-dark),var(--teal));border:1px solid var(--teal-light);border-radius:30px;padding:6px 18px;font-size:.82rem;color:var(--mint);margin-top:14px;font-family:'Orbitron',sans-serif;letter-spacing:1px;box-shadow:0 0 20px rgba(9,127,130,.4);animation:badgePulse 2s ease-in-out infinite;}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 20px rgba(9,127,130,.4)}50%{box-shadow:0 0 40px rgba(9,127,130,.8)}}
+
+/* ── RESEARCHER ── */
+.researcher-section{text-align:center;margin:22px 0 10px;}
+.researcher-section .label{font-size:.88rem;color:var(--text-dim);margin-bottom:14px;letter-spacing:2px;}
+.researcher-card{display:inline-flex;flex-direction:column;align-items:center;gap:12px;}
+.researcher-name{font-family:'Amiri',serif;font-size:1.45rem;font-weight:700;color:var(--gold-light);text-shadow:0 0 15px rgba(162,134,21,.4);}
+.researcher-title{font-size:.82rem;color:var(--text-dim);line-height:1.6;}
+
+/* ── PERSON PHOTO CIRCLE ── */
+.photo-wrap{
+  position:relative;display:inline-block;border-radius:50%;
+  animation:personPulse 3.5s ease-in-out infinite;
+  border: 2px solid var(--teal);
+  overflow: hidden;
+}
+.photo-wrap.gold-anim{animation:personPulseGold 3.5s ease-in-out infinite; border-color: var(--gold-light);}
+@keyframes personPulse{
+  0%,100%{box-shadow:0 0 0 4px rgba(9,127,130,.15),0 0 20px rgba(9,127,130,.35)}50%{box-shadow:0 0 0 6px rgba(9,127,130,.25),0 0 35px rgba(9,127,130,.7),0 0 60px rgba(9,127,130,.2)}
+}
+@keyframes personPulseGold{
+  0%,100%{box-shadow:0 0 0 4px rgba(162,134,21,.12),0 0 20px rgba(162,134,21,.4)}50%{box-shadow:0 0 0 6px rgba(162,134,21,.22),0 0 35px rgba(162,134,21,.7),0 0 60px rgba(162,134,21,.2)}
+}
+.photo-wrap img{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover;}
+.photo-wrap .shine-ring{
+  position:absolute;inset:-3px;border-radius:50%;
+  background:conic-gradient(transparent 0deg,rgba(255,255,255,.2) 60deg,transparent 120deg);
+  animation:shineRotate 3s linear infinite;
+  pointer-events:none;
+}
+
+/* researcher large */
+.photo-wrap.researcher-size{width:120px;height:120px;}
+/* member card size */
+.photo-wrap.member-size{width:82px;height:82px;margin:0 auto 12px;}
+
+/* ── SECTION HEADER ── */
+.section-header{text-align:center;margin:28px 0 16px;position:relative;}
+.section-header h3{display:inline-block;font-family:'Cairo',sans-serif;font-size:1.1rem;font-weight:700;color:var(--teal-light);letter-spacing:3px;background:var(--bg-deep);padding:0 20px;position:relative;z-index:1;}
+.section-header::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);}
+
+/* ── COMMITTEE GRID ── */
+.committee-grid{
+  display:flex;
+  flex-wrap:nowrap;
+  justify-content:center;
+  gap:16px;
+  margin-bottom:8px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.member-card{
+  background:linear-gradient(135deg,rgba(9,127,130,.1),rgba(5,26,27,.8));
+  border:1px solid rgba(9,127,130,.3);
+  border-radius:14px;
+  padding:18px 14px;
+  text-align:center;
+  transition:all .3s ease;
+  position:relative;overflow:hidden;
+  width:210px;
+  flex-shrink:0;
+}
+.member-card:hover{border-color:var(--teal);box-shadow:0 0 30px rgba(9,127,130,.3);transform:translateY(-4px);}
+.member-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal-light),transparent);}
+.member-name{font-family:'Amiri',serif;font-size:1rem;font-weight:700;color:#fff;line-height:1.6;margin-bottom:4px;}
+.member-role{font-size:.72rem;color:var(--gold-light);line-height:1.5;margin-bottom:4px;}
+.member-uni{font-size:.68rem;color:var(--text-dim);line-height:1.5;}
+
+/* ── COUNTDOWN ── */
+.countdown-section{
+  background:linear-gradient(135deg,rgba(9,127,130,.2),rgba(162,134,21,.08));
+  border:1px solid rgba(9,127,130,.4);
+  border-radius:18px;
+  padding:28px;
+  text-align:center;
+  margin:24px 0;
+  box-shadow:0 0 50px rgba(9,127,130,.15);
+}
+.countdown-title{font-size:.85rem;color:var(--teal-light);letter-spacing:4px;margin-bottom:6px;font-family:'Orbitron',sans-serif;}
+.countdown-date{font-family:'Amiri',serif;font-size:1.05rem;color:var(--gold-light);margin-bottom:20px;line-height:1.8;}
+.countdown-grid{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.count-box{
+  background:linear-gradient(135deg,rgba(9,127,130,.25),rgba(5,26,27,.9));
+  border:1px solid var(--teal);
+  border-radius:12px;
+  padding:14px 22px;
+  min-width:84px;
+  box-shadow:0 0 20px rgba(9,127,130,.2);
+}
+.count-num{
+  font-family:'Orbitron', sans-serif; /* Changed from Share Tech Mono to Orbitron */
+  font-size:2.4rem;
+  font-weight:700;
+  color:var(--teal-light);
+  display:block;
+  line-height:1;
+  margin-bottom:6px;
+  text-shadow:0 0 10px rgba(11,168,172,.5);
+}
+.count-label{font-size:.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;}
+
+/* ── INFO BAR ── */
+.info-bar{
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  margin:24px 0;
+  flex-wrap:wrap;
+  text-align: center;
+}
+.info-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:rgba(9,127,130,.1);
+  border:1px solid rgba(9,127,130,.2);
+  padding:12px 20px;
+  border-radius:12px;
+}
+.info-icon{font-size:1.4rem;}
+.info-text{text-align:right;}
+.info-val{font-size:.95rem;font-weight:700;color:var(--mint);display:block;}
+.info-lab{font-size:.72rem;color:var(--text-dim);}
+
+/* ── CONGRATS BOX ── */
+.congrats-box{
+  background:linear-gradient(135deg,rgba(162,134,21,.15),rgba(5,26,27,.9));
+  border:1px solid var(--gold);
+  border-radius:18px;
+  padding:32px;
+  margin-top:40px;
+  box-shadow:0 0 40px rgba(162,134,21,.1);
+}
+.congrats-box h4{text-align:center;font-family:'Amiri',serif;font-size:1.4rem;color:var(--gold-light);margin-bottom:22px;}
+.congrats-input-wrap{display:flex;gap:12px;margin-bottom:24px;}
+.congrats-input-wrap input{
+  flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(162,134,21,.4);
+  border-radius:10px;padding:12px 18px;color:#fff;font-family:'Cairo',sans-serif;outline:none;
+}
+.congrats-input-wrap input:focus{border-color:var(--gold-light);box-shadow:0 0 15px rgba(162,134,21,.3);}
+.congrats-btn{
+  background:var(--gold);color:var(--bg-deep);border:none;border-radius:10px;
+  padding:0 24px;font-weight:700;cursor:pointer;transition:all .3s ease;
+}
+.congrats-btn:hover{background:var(--gold-light);transform:scale(1.03);}
+
+.congrats-list{max-height:300px;overflow-y:auto;padding-right:8px;}
+.congrats-item{background:rgba(255,255,255,.03);border-radius:10px;padding:14px;margin-bottom:12px;border-right:4px solid var(--gold);}
+.c-text{font-size:.92rem;line-height:1.6;margin-bottom:6px;}
+.c-time{font-size:.7rem;color:var(--text-dim);text-align:left;}
+
+/* ── FOOTER ── */
+.footer-bar{text-align:center;padding:30px 0;border-top:1px solid rgba(9,127,130,.2);margin-top:40px;}
+.footer-bar .copy{font-size:.78rem;color:var(--text-dim);}
+.footer-bar .copy span{color:var(--teal-light);font-weight:700;}
+
+/* ── SHARE ── */
+.share-section{text-align:center;margin:30px 0;}
+.share-title{font-size:.8rem;color:var(--text-dim);margin-bottom:14px;letter-spacing:3px;}
+.share-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.share-btn{
+  text-decoration:none;padding:8px 18px;border-radius:30px;font-size:.75rem;font-weight:700;
+  display:inline-flex;align-items:center;gap:8px;transition:all .3s ease;
+}
+.share-fb{background:#1877f2;color:#fff;}
+.share-x{background:#000;color:#fff;border:1px solid #333;}
+.share-wa{background:#25d366;color:#fff;}
+.share-tg{background:#0088cc;color:#fff;}
+.share-btn:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.3);}
+
+@media(max-width:768px){
+  .header-bar{flex-direction:column;gap:20px;text-align:center;}
+  .uni-info{text-align:center;}
+  .logos{justify-content:center;}
+  .thesis-title{font-size:1.3rem;}
+  .count-box{min-width:70px;padding:10px 14px;}
+  .count-num{font-size:1.8rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="neural-bg" id="neural-bg"></div>
+
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <div class="header-bar">
+    <div class="uni-info">
+      <div class="uni-name">جامعة الأزهر</div>
+      <div class="uni-sub">كلية التربية بنين بالقاهرة<br>قسم أصول التربية</div>
+    </div>
+    <div class="logos">
+      <div class="logo-circle">
+        <img src="images/uni_logo.png" alt="جامعة الأزهر">
+        <div class="shine"></div>
+      </div>
+      <div class="logo-circle gold-ring">
+        <img src="images/college_logo.png" alt="كلية التربية">
+        <div class="shine"></div>
+      </div>
+      <div class="logo-circle">
+        <img src="images/dept_logo.png" alt="قسم أصول التربية">
+        <div class="shine"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVITATION TITLE -->
+  <div class="invite-title-wrap">
+    <img src="images/invite_text.png" alt="دعوة" class="invite-img">
+  </div>
+
+  <!-- ANNOUNCEMENT -->
+  <div class="announcement">
+    <p>
+      يسر قسم أصول التربية بكلية التربية بنين بالقاهرة – جامعة الأزهر
+      أن يدعوكم لحضور مناقشة رسالة العالمية <strong style="color:var(--gold-light);">دكتوراه الفلسفة</strong> في التربية، تخصص <strong style="color:var(--teal-light);">(أصول التربية)</strong>، وعنوانها:
+    </p>
+  </div>
+
+  <!-- THESIS CARD -->
+  <div class="thesis-card">
+    <div class="thesis-title">
+      استراتيجية مقترحة لتوظيف
+      <span class="highlight">روبوتات المحادثة Chatbots</span>
+      في التعليم الجامعي بمصر
+      من منظور فلسفة <span class="highlight"> الذكاء الاصطناعي المسؤول</span>
+    </div>
+  </div>
+
+  <!-- RESEARCHER -->
+  <div class="researcher-section">
+    <div class="label">المقدمة من الباحث/</div>
+    <div class="researcher-card">
+      <div class="photo-wrap researcher-size gold-anim">
+        <img src="images/researcher1.png" alt="محمد فرح">
+        <div class="shine-ring"></div>
+      </div>
+      <div class="researcher-name">محمد فرح محمد متولي</div>
+      <div class="researcher-title">المدرس المساعد بقسم أصول التربية
+			 <div class="researcher-title">كلية التربية بنين بالقاهرة - جامعة الأزهر</div>
+    </div>
+  </div>
+
+  <!-- SUPERVISION -->
+  <div class="section-header"><h3>◈ لجنة الإشراف ◈</h3></div>
+  <div class="committee-grid">
+    <div class="member-card">
+      <div class="photo-wrap member-size">
+        <img src="images/per1.png" alt="مشرف">
+        <div class="shine-ring"></div>
+      </div>
+      <div class="member-name">أ.د/ أحمد سمير فوزي عبد الله</div>
+      <div class="member-role">أستاذ أصول التربية</div>
+      <div class="member-uni">كلية التربية بنين بالقاهرة<br>جامعة الأزهر</div>
+    </div>
+    <div class="member-card">
+      <div class="photo-wrap member-size">
+        <img src="images/per2.png" alt="مشرف">
+        <div class="shine-ring"></div>
+      </div>
+      <div class="member-name">د/ ياسر علي علي عبد الغني</div>
+      <div class="member-role">أستاذ تكنولوجيا التعليم المساعد</div>
+      <div class="member-uni">كلية التربية بنين بالقاهرة<br>جامعة الأزهر</div>
+    </div>
+    <div class="member-card">
+      <div class="photo-wrap member-size">
+        <img src="images/per3.png" alt="مشرف">
+        <div class="shine-ring"></div>
+      </div>
+      <div class="member-name">د/ جمال عبد الحميد أحمد عبد السميع</div>
+      <div class="member-role">مدرس أصول التربية</div>
+      <div class="member-uni">كلية التربية بنين بالقاهرة<br>جامعة الأزهر</div>
+    </div>
+  </div>
+
+  <!-- DISCUSSION COMMITTEE -->
+  <div class="section-header"><h3>◈ لجنة المناقشة والحكم ◈</h3></div>
+  <div class="committee-grid">
+    <div class="member-card">
+      <div class="photo-wrap member-size gold-anim">
+        <img src="images/per1.png" alt="مناقش">
+        <div class="shine-ring"></div>
+      </div>
+      <div class="member-name">أ.د/ أحمد سمير فوزي عبد الله</div>
+      <div class="member-role">أستاذ أصول التربية</div>
+      <div class="member-uni">كلية التربية بنين بالقاهرة<br>جامعة الأزهر</div>
+			<div class="member-role">(مشرفًا ورئيسًا)</div>
+    </div>
+    <div class="member-card">
+      <div class="photo-wrap member-size">
+        <img src="images/perso1.png" alt="مناقش">
+        <div class="shine-ring"></div>
+      </div>
+      <div class="member-name">أ.د/ محمود عبد اللطيف السيد</div>
+      <div class="member-role">أستاذ أصول التربية</div>
+      <div class="member-uni">كلية التربية بنين بالقاهرة<br>جامعة الأزهر</div>
+			<div class="member-role">(مشرفًا ورئيسًا)</div>
+    </div>
+    <div class="member-card">
+      <div class="photo-wrap member-size">
+        <img src="images/perso2.png" alt="مناقش">
+        <div class="shine-ring"></div>
+      </div>
+      <div class="member-name">أ.د/ نسمة محمد عبد السلام</div>
+      <div class="member-role">أستاذ أصول التربية</div>
+      <div class="member-uni">كلية التربية<br>جامعة عين شمس</div>
+			<div class="member-role">(مشرفًا ورئيسًا)</div>
+    </div>
+    <div class="member-card">
+      <div class="photo-wrap member-size">
+        <img src="images/per2.png" alt="مناقش">
+        <div class="shine-ring"></div>
+      </div>
+      <div class="member-name">د/ ياسر علي علي عبد الغني</div>
+      <div class="member-role">أستاذ تكنولوجيا التعليم المساعد</div>
+      <div class="member-uni">كلية التربية بنين بالقاهرة<br>جامعة الأزهر</div>
+			<div class="member-role">(مشرفًا ورئيسًا)</div>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-section">
+    <div class="countdown-title">COUNTDOWN TO DISCUSSION</div>
+    <div class="countdown-date">يوم الثلاثاء الموافق 2026/04/28 م الساعة 10:00 صباحاً</div>
+    <div class="countdown-grid">
+      <div class="count-box"><span class="count-num" id="days">00</span><span class="count-label">أيام</span></div>
+      <div class="count-box"><span class="count-num" id="hours">00</span><span class="count-label">ساعة</span></div>
+      <div class="count-box"><span class="count-num" id="minutes">00</span><span class="count-label">دقيقة</span></div>
+      <div class="count-box"><span class="count-num" id="seconds">00</span><span class="count-label">ثانية</span></div>
+    </div>
+  </div>
+
+  <!-- INFO BAR -->
+  <div class="info-bar">
+    <div class="info-item">
+      <div class="info-icon">📍</div>
+      <div class="info-text">
+        <span class="info-val">قاعة المناقشات الكبرى</span>
+        <span class="info-lab">موقع المناقشة</span>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">🏢</div>
+      <div class="info-text">
+        <span class="info-val">كلية التربية بالقاهرة</span>
+        <span class="info-lab">المكان</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONGRATS BOX -->
+<div class="congrats-box">
+    <h4>◈ سجل كلمة تهنئة للباحث ◈</h4>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ar_AR/sdk.js#xfbml=1&version=v17.0"></script>
+
+    <div class="fb-comments" 
+         data-href="https://your-website-url.com" 
+         data-width="100%" 
+         data-numposts="10" 
+         data-colorscheme="dark">
+    </div>
+</div>
+
+  <!-- SHARE -->
+  <div class="share-section">
+    <div class="share-title">◈ شارك الدعوة ◈</div>
+    <div class="share-buttons">
+      <a class="share-btn share-fb" href="#" onclick="shareOn('facebook');return false;">👍 Facebook</a>
+      <a class="share-btn share-x"  href="#" onclick="shareOn('x');return false;">✕ X (Twitter)</a>
+      <a class="share-btn share-wa" href="#" onclick="shareOn('whatsapp');return false;">📱 WhatsApp</a>
+      <a class="share-btn share-tg" href="#" onclick="shareOn('telegram');return false;">✈️ Telegram</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-bar">
+    <div class="copy">جميع حقوق الفكرة والبرمجة محفوظة © <span>محمد فرح 2026</span></div>
+  </div>
+
+</div>
+
+<script>
+// Neural Background
+const bg = document.getElementById('neural-bg');
+for(let i=0; i<40; i++){
+  const dot = document.createElement('div');
+  dot.className = 'neural-dot';
+  const size = Math.random()*4 + 2;
+  dot.style.width = size+'px';
+  dot.style.height = size+'px';
+  dot.style.left = Math.random()*100+'vw';
+  dot.style.animationDuration = (Math.random()*10 + 10)+'s';
+  dot.style.animationDelay = (Math.random()*5)+'s';
+  bg.appendChild(dot);
+}
+
+// Countdown
+const targetDate = new Date('2026-04-28T10:00:00').getTime();
+function updateCountdown(){
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+  if(diff < 0) return;
+  const d = Math.floor(diff/(1000*60*60*24));
+  const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((diff%(1000*60*60))/(1000*60));
+  const s = Math.floor((diff%(1000*60))/1000);
+  document.getElementById('days').innerText = d.toString().padStart(2,'0');
+  document.getElementById('hours').innerText = h.toString().padStart(2,'0');
+  document.getElementById('minutes').innerText = m.toString().padStart(2,'0');
+  document.getElementById('seconds').innerText = s.toString().padStart(2,'0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Share
+function shareOn(platform){
+  const url = window.location.href;
+  const text = "دعوة لحضور مناقشة رسالة دكتوراه الباحث محمد فرح";
+  let shareUrl = '';
+  if(platform==='facebook') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+  if(platform==='x') shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+  if(platform==='whatsapp') shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text + " " + url)}`;
+  if(platform==='telegram') shareUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+  window.open(shareUrl, '_blank');
+}
+
+// Congrats
+const congratsList = [];
+function submitCongrats(){
+  const txt = document.getElementById('congrats-text').value.trim();
+  if(!txt) return;
+  congratsList.unshift({text:txt, time:new Date().toLocaleString('ar-EG')});
+  document.getElementById('congrats-text').value = '';
+  const el = document.getElementById('congrats-list');
+  el.innerHTML = congratsList.map(c => `
+    <div class="congrats-item">
+      <div class="c-text">${c.text}</div>
+      <div class="c-time">${c.time}</div>
+    </div>
+  `).join('');
+}
+</script>
+</body>
+</html>
