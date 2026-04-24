@@ -490,18 +490,103 @@ body::before {
   </div>
 
   <!-- CONGRATS BOX -->
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, push, onValue, remove, update }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5xYXrZrrwA6ws8WRyMr2dIHXlWBVn3FE",
+    authDomain: "aaaaaa-5b453.firebaseapp.com",
+    databaseURL: "https://aaaaaa-5b453-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "aaaaaa-5b453",
+    storageBucket: "aaaaaa-5b453.firebasestorage.app",
+    messagingSenderId: "722031681124",
+    appId: "1:722031681124:web:0d45ca14b0413d9954c971"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getDatabase(app);
+  const congratsRef = ref(db, "congrats");
+
+  window.submitCongrats = function () {
+    const nameEl = document.getElementById("congrats-name");
+    const textEl = document.getElementById("congrats-text");
+    const name = nameEl.value.trim();
+    const text = textEl.value.trim();
+    if (!name || !text) {
+      alert("من فضلك اكتب اسمك وكلمة التهنئة");
+      return;
+    }
+    push(congratsRef, {
+      name, text,
+      time: new Date().toLocaleString("ar-EG"),
+      ts: Date.now()
+    });
+    nameEl.value = "";
+    textEl.value = "";
+  };
+
+  window.deleteCongrats = function (id) {
+    if (confirm("هل تريد حذف التهنئة؟"))
+      remove(ref(db, "congrats/" + id));
+  };
+
+  window.editCongrats = function (id, oldText) {
+    const newText = prompt("عدّل نص تهنئتك:", oldText);
+    if (newText && newText.trim())
+      update(ref(db, "congrats/" + id), {
+        text: newText.trim(),
+        edited: true
+      });
+  };
+
+  onValue(congratsRef, (snap) => {
+    const list = document.getElementById("congrats-list");
+    if (!snap.exists()) {
+      list.innerHTML = `<p style="text-align:center;color:var(--text-dim);padding:20px">
+        كن أول من يهنئ الباحث 🎉</p>`;
+      return;
+    }
+    const items = [];
+    snap.forEach(child => items.unshift({ id: child.key, ...child.val() }));
+    list.innerHTML = items.map(c => `
+      <div class="congrats-item">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <span style="font-weight:700;color:var(--teal-light);font-size:.9rem">👤 ${c.name}</span>
+          <div style="display:flex;gap:8px">
+            <button onclick="editCongrats('${c.id}','${c.text.replace(/'/g,"\\'")}')"
+              style="background:rgba(9,127,130,.2);border:1px solid var(--teal);
+                     color:var(--mint);border-radius:6px;padding:3px 10px;
+                     font-size:.7rem;cursor:pointer">✏️ تعديل</button>
+            <button onclick="deleteCongrats('${c.id}')"
+              style="background:rgba(180,30,30,.2);border:1px solid #c0392b;
+                     color:#ff6b6b;border-radius:6px;padding:3px 10px;
+                     font-size:.7rem;cursor:pointer">🗑️ حذف</button>
+          </div>
+        </div>
+        <div class="c-text">${c.text} ${c.edited ? '<span style="font-size:.65rem;color:var(--text-dim)">(معدّل)</span>' : ''}</div>
+        <div class="c-time">${c.time}</div>
+      </div>
+    `).join("");
+  });
+</script>
+
+<!-- CONGRATS BOX -->
 <div class="congrats-box">
-    <h4>◈ سجل كلمة تهنئة للباحث ◈</h4>
-
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ar_AR/sdk.js#xfbml=1&version=v17.0"></script>
-
-    <div class="fb-comments" 
-         data-href="https://invitcomm.pages.dev/" 
-         data-width="100%" 
-         data-numposts="10" 
-         data-colorscheme="dark">
+  <h4>◈ سجل كلمة تهنئة للباحث ◈</h4>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
+    <input id="congrats-name" type="text" placeholder="اسمك..."
+      style="background:rgba(255,255,255,.05);border:1px solid rgba(162,134,21,.4);
+             border-radius:10px;padding:12px 18px;color:#fff;
+             font-family:'Cairo',sans-serif;outline:none">
+    <div class="congrats-input-wrap">
+      <input id="congrats-text" type="text" placeholder="اكتب تهنئتك هنا...">
+      <button class="congrats-btn" onclick="submitCongrats()">إرسال</button>
     </div>
+  </div>
+  <div class="congrats-list" id="congrats-list"></div>
 </div>
 
   <!-- SHARE -->
