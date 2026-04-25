@@ -20,7 +20,6 @@
   --bg-mid: #051a1b;
   --text-light: #e8f8f7;
   --text-dim: #8ecfcd;
-  /* ── orange accent for countdown ── */
   --orange: #e8813a;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -32,24 +31,21 @@ body {
   min-height:100vh;
 }
 body::before {
-  content:'';
-  position:fixed;
-  inset:0;
+  content:'';position:fixed;inset:0;
   background-image:
     linear-gradient(rgba(9,127,130,.07) 1px,transparent 1px),
     linear-gradient(90deg,rgba(9,127,130,.07) 1px,transparent 1px);
   background-size:40px 40px;
   animation:gridMove 20s linear infinite;
-  pointer-events:none;
-  z-index:0;
+  pointer-events:none;z-index:0;
 }
 @keyframes gridMove{0%{background-position:0 0}100%{background-position:40px 40px}}
-
 .neural-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
 .neural-dot{position:absolute;border-radius:50%;background:var(--teal);opacity:.15;animation:floatDot linear infinite;}
 @keyframes floatDot{0%{transform:translateY(110vh) scale(0);opacity:0}10%{opacity:.15}90%{opacity:.15}100%{transform:translateY(-10vh) scale(1);opacity:0}}
 
-.page-wrapper{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:20px 16px 60px;}
+/* page wrapper — no bottom padding so footer is truly last */
+.page-wrapper{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:20px 16px 0;}
 
 /* HEADER */
 .header-bar{
@@ -64,7 +60,6 @@ body::before {
 .uni-info .uni-name{font-family:'Amiri',serif;font-size:1.3rem;font-weight:700;color:var(--gold-light);line-height:1.7;text-shadow:0 0 20px rgba(162,134,21,.5);}
 .uni-info .uni-sub{font-size:.82rem;color:var(--text-dim);line-height:1.7;}
 .logos{display:flex;gap:10px;align-items:center;}
-
 .logo-circle{
   width:70px;height:70px;border-radius:50%;border:2px solid var(--teal);
   overflow:hidden;position:relative;
@@ -77,11 +72,7 @@ body::before {
   animation:logoPulseGold 3s ease-in-out infinite;
 }
 .logo-circle img{width:100%;height:100%;object-fit:cover;display:block;}
-.logo-circle .shine{
-  position:absolute;inset:0;border-radius:50%;
-  background:conic-gradient(transparent 0deg,rgba(255,255,255,.12) 60deg,transparent 120deg);
-  animation:shineRotate 4s linear infinite;
-}
+.logo-circle .shine{position:absolute;inset:0;border-radius:50%;background:conic-gradient(transparent 0deg,rgba(255,255,255,.12) 60deg,transparent 120deg);animation:shineRotate 4s linear infinite;}
 @keyframes logoPulse{0%,100%{box-shadow:0 0 0 3px rgba(9,127,130,.15),0 0 16px rgba(9,127,130,.35)}50%{box-shadow:0 0 0 5px rgba(9,127,130,.25),0 0 28px rgba(9,127,130,.7),0 0 50px rgba(9,127,130,.2)}}
 @keyframes logoPulseGold{0%,100%{box-shadow:0 0 0 3px rgba(162,134,21,.12),0 0 16px rgba(162,134,21,.4)}50%{box-shadow:0 0 0 5px rgba(162,134,21,.22),0 0 28px rgba(162,134,21,.7),0 0 50px rgba(162,134,21,.2)}}
 @keyframes shineRotate{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
@@ -116,147 +107,92 @@ body::before {
 .researcher-name{font-family:'Amiri',serif;font-size:1.45rem;font-weight:700;color:var(--gold-light);text-shadow:0 0 15px rgba(162,134,21,.4);}
 .researcher-title{font-size:.82rem;color:var(--text-dim);line-height:1.6;}
 
-.photo-wrap{
-  position:relative;display:inline-block;border-radius:50%;
-  animation:personPulse 3.5s ease-in-out infinite;
-  border:2px solid var(--teal);overflow:hidden;
-}
+.photo-wrap{position:relative;display:inline-block;border-radius:50%;animation:personPulse 3.5s ease-in-out infinite;border:2px solid var(--teal);overflow:hidden;}
 .photo-wrap.gold-anim{animation:personPulseGold 3.5s ease-in-out infinite;border-color:var(--gold-light);}
 @keyframes personPulse{0%,100%{box-shadow:0 0 0 4px rgba(9,127,130,.15),0 0 20px rgba(9,127,130,.35)}50%{box-shadow:0 0 0 6px rgba(9,127,130,.25),0 0 35px rgba(9,127,130,.7),0 0 60px rgba(9,127,130,.2)}}
 @keyframes personPulseGold{0%,100%{box-shadow:0 0 0 4px rgba(162,134,21,.12),0 0 20px rgba(162,134,21,.4)}50%{box-shadow:0 0 0 6px rgba(162,134,21,.22),0 0 35px rgba(162,134,21,.7),0 0 60px rgba(162,134,21,.2)}}
 .photo-wrap img{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover;}
 .photo-wrap .shine-ring{position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(transparent 0deg,rgba(255,255,255,.2) 60deg,transparent 120deg);animation:shineRotate 3s linear infinite;pointer-events:none;}
 .photo-wrap.researcher-size{width:120px;height:120px;}
-
-/* ── ENLARGED member photos (was 82px → 100px) ── */
-.photo-wrap.member-size{width:100px;height:100px;margin:0 auto 12px;}
+.photo-wrap.member-size{width:100px;height:100px;margin:0 auto 10px;}
 
 .section-header{text-align:center;margin:28px 0 16px;position:relative;}
 .section-header h3{display:inline-block;font-family:'Cairo',sans-serif;font-size:1.1rem;font-weight:700;color:var(--teal-light);letter-spacing:3px;background:var(--bg-deep);padding:0 20px;position:relative;z-index:1;}
 .section-header::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);}
 
-/* ── COMMITTEE CARDS: fixed width, min-height to avoid size changes ── */
-.committee-grid{display:flex;flex-wrap:nowrap;justify-content:center;gap:16px;margin-bottom:8px;max-width:1000px;margin-left:auto;margin-right:auto;}
+/* ══ COMMITTEE — height fits content, content vertically centred ══ */
+.committee-grid{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:16px;margin-bottom:8px;
+  max-width:1000px;margin-left:auto;margin-right:auto;
+}
 .member-card{
   background:linear-gradient(135deg,rgba(9,127,130,.1),rgba(5,26,27,.8));
-  border:1px solid rgba(9,127,130,.3);border-radius:14px;padding:18px 20px;
+  border:1px solid rgba(9,127,130,.3);border-radius:14px;
+  padding:18px 20px;
   text-align:center;transition:all .3s ease;position:relative;overflow:hidden;
   width:240px;flex-shrink:0;
-  /* fixed height so enlarged photo + bigger description text don't change card size */
-  min-height:280px;
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  /* no min-height — card shrinks to content */
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
 }
 .member-card:hover{border-color:var(--teal);box-shadow:0 0 30px rgba(9,127,130,.3);transform:translateY(-4px);}
 .member-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal-light),transparent);}
-.member-name{font-family:'Amiri',serif;font-size:1rem;font-weight:700;color:#fff;line-height:1.6;margin-bottom:4px;}
+.member-name{font-family:'Amiri',serif;font-size:1rem;font-weight:700;color:#fff;line-height:1.5;margin-bottom:3px;}
+.member-role{font-size:.8rem;color:var(--gold-light);line-height:1.4;margin-bottom:3px;}
+.member-uni{font-size:.77rem;color:var(--text-dim);line-height:1.4;}
+.member-role-bold{font-size:.8rem;color:var(--gold-light);line-height:1.4;margin-top:4px;font-weight:700;}
 
-/* ── SLIGHTLY LARGER description text (was .72rem → .8rem) ── */
-.member-role{font-size:.8rem;color:var(--gold-light);line-height:1.5;margin-bottom:4px;}
-.member-uni{font-size:.77rem;color:var(--text-dim);line-height:1.5;}
-
-/* ── Bold supervisor/role label ── */
-.member-role-bold{font-size:.8rem;color:var(--gold-light);line-height:1.5;margin-bottom:4px;font-weight:700;}
-
-/* ══ INFO BOXES — new 2-row layout ══ */
+/* ══ INFO BOXES ══ */
 .event-info-wrapper{margin:24px 0 0;}
-
-/* row 1: date + time side by side */
-.event-info-row1{
-  display:flex;gap:14px;justify-content:center;margin-bottom:10px;flex-wrap:nowrap;
-}
-/* row 2: location full width */
-.event-info-row2{
-  display:flex;justify-content:center;
-}
+.event-info-row1{display:flex;gap:14px;justify-content:center;margin-bottom:10px;flex-wrap:nowrap;}
+.event-info-row2{display:flex;justify-content:center;}
 
 .event-info-item{
-  display:flex;align-items:flex-start;gap:10px;
+  display:flex;align-items:center;gap:10px;
   background:linear-gradient(135deg,rgba(9,127,130,.12),rgba(5,26,27,.8));
   border:1px solid rgba(9,127,130,.35);
   padding:10px 16px;border-radius:14px;
-  box-shadow:0 0 18px rgba(9,127,130,.1);
-  transition:all .3s;
+  box-shadow:0 0 18px rgba(9,127,130,.1);transition:all .3s;
 }
 .event-info-item:hover{border-color:var(--teal-light);box-shadow:0 0 25px rgba(9,127,130,.25);}
+.event-info-item.date-box,.event-info-item.time-box{flex:1;max-width:260px;}
+.event-info-item.loc-box{flex:1;max-width:534px;width:100%;}
 
-/* date + time boxes: equal share */
-.event-info-item.date-box,
-.event-info-item.time-box{flex:1;max-width:260px;}
-
-/* location box: full width of the two above */
-.event-info-item.loc-box{
-  flex:1;
-  max-width:534px; /* ~260+260+14 gap */
-  width:100%;
-}
-
-.event-info-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px;}
+.event-info-icon{font-size:1.3rem;flex-shrink:0;}
 .event-info-icon.location{color:#26e0b5;}
 .event-info-icon.date{color:var(--gold-light);}
 .event-info-icon.time{color:#7ec8e3;}
 
-/* ── Smaller text inside info boxes ── */
-.event-info-val{font-size:.8rem;font-weight:400;color:var(--text-light);line-height:1;}
-.event-infoo-vall{font-size:.8rem;font-weight:400;color:var(--gold-light);line-height:1;}
-  
-/* ══ MAP BOX — shorter height ══ */
-.map-box{
-  margin:12px 0 0;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(9,127,130,.4);
-  box-shadow:0 0 30px rgba(9,127,130,.15);
-  height:160px;
-  position:relative;
+/* tight line spacing inside info boxes */
+.event-info-val{
+  font-size:.8rem;font-weight:400;color:var(--text-light);
+  line-height:1.3;display:block;
 }
-.map-box iframe{width:100%;height:100%;border:0;display:block;}
-.map-label{
-  position:absolute;bottom:0;right:0;left:0;
-  background:linear-gradient(transparent,rgba(3,15,16,.85));
-  padding:6px 14px;
-  font-size:.75rem;color:var(--text-dim);
-  text-align:center;
+.event-info-val-gold{
+  font-size:.8rem;font-weight:600;color:var(--gold-light);
+  line-height:1.3;display:block;
 }
 
-/* ══ COUNTDOWN — single row, orange numbers, smaller boxes ══ */
+/* ══ MAP ══ */
+.map-box{
+  margin:12px 0 0;border-radius:16px;overflow:hidden;
+  border:1px solid rgba(9,127,130,.4);box-shadow:0 0 30px rgba(9,127,130,.15);
+  height:160px;position:relative;
+}
+.map-box iframe{width:100%;height:100%;border:0;display:block;}
+.map-label{position:absolute;bottom:0;right:0;left:0;background:linear-gradient(transparent,rgba(3,15,16,.85));padding:6px 14px;font-size:.75rem;color:var(--text-dim);text-align:center;}
+
+/* ══ COUNTDOWN ══ */
 .countdown-section{
   background:linear-gradient(135deg,rgba(9,127,130,.2),rgba(162,134,21,.08));
   border:1px solid rgba(9,127,130,.4);border-radius:18px;padding:20px;
   text-align:center;margin:20px 0;box-shadow:0 0 50px rgba(9,127,130,.15);
 }
-.countdown-title{
-  font-size:1rem;color:var(--teal-light);letter-spacing:2px;
-  margin-bottom:14px;font-family:'Cairo',sans-serif;font-weight:700;
-}
-.countdown-done{
-  font-family:'Amiri',serif;font-size:1.3rem;
-  color:var(--gold-light);
-  text-shadow:0 0 20px rgba(212,175,58,.5);
-  padding:10px 0;
-}
-/* single row of 4 boxes */
-.countdown-grid{
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  gap:8px;
-}
-.count-box{
-  background:linear-gradient(135deg,rgba(9,127,130,.2),rgba(5,26,27,.9));
-  border:1px solid rgba(9,127,130,.5);border-radius:10px;
-  padding:8px 14px;
-  box-shadow:0 0 14px rgba(9,127,130,.15);
-  min-width:64px;
-}
-.count-num{
-  font-family:'Outfit',sans-serif;
-  font-size:1.6rem;font-weight:900;
-  /* orange color */
-  color:var(--orange);
-  display:block;line-height:1;margin-bottom:3px;
-  text-shadow:0 0 8px rgba(232,129,58,.4);
-  letter-spacing:1px;
-}
+.countdown-title{font-size:1rem;color:var(--teal-light);letter-spacing:2px;margin-bottom:14px;font-family:'Cairo',sans-serif;font-weight:700;}
+.countdown-done{font-family:'Amiri',serif;font-size:1.3rem;color:var(--gold-light);text-shadow:0 0 20px rgba(212,175,58,.5);padding:10px 0;}
+.countdown-grid{display:flex;flex-direction:row;justify-content:center;gap:8px;}
+.count-box{background:linear-gradient(135deg,rgba(9,127,130,.2),rgba(5,26,27,.9));border:1px solid rgba(9,127,130,.5);border-radius:10px;padding:8px 14px;box-shadow:0 0 14px rgba(9,127,130,.15);min-width:64px;}
+.count-num{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:900;color:var(--orange);display:block;line-height:1;margin-bottom:3px;text-shadow:0 0 8px rgba(232,129,58,.4);letter-spacing:1px;}
 .count-label{font-size:.6rem;color:var(--text-dim);letter-spacing:1.5px;}
 
 /* ══ CONGRATS ══ */
@@ -266,77 +202,65 @@ body::before {
   margin-top:40px;box-shadow:0 0 40px rgba(162,134,21,.1);
 }
 .congrats-box h4{text-align:center;font-family:'Amiri',serif;font-size:1.4rem;color:var(--gold-light);margin-bottom:22px;}
-
 .input-row{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
-.input-row input[type="text"]{
-  background:rgba(255,255,255,.05);border:1px solid rgba(162,134,21,.4);
-  border-radius:10px;padding:12px 18px;color:#fff;
-  font-family:'Cairo',sans-serif;outline:none;font-size:1rem;width:100%;
-}
+.input-row input[type="text"]{background:rgba(255,255,255,.05);border:1px solid rgba(162,134,21,.4);border-radius:10px;padding:12px 18px;color:#fff;font-family:'Cairo',sans-serif;outline:none;font-size:1rem;width:100%;}
 .input-row input[type="text"]:focus{border-color:var(--gold-light);box-shadow:0 0 15px rgba(162,134,21,.3);}
-
-/* ── Edit prompt textarea: larger ── */
-textarea#congrats-text{
-  width:100%;min-height:80px;
-  background:rgba(255,255,255,.05);border:1px solid rgba(162,134,21,.4);
-  border-radius:10px;padding:12px 18px;color:#fff;
-  font-family:'Cairo',sans-serif;outline:none;font-size:1rem;
-  resize:vertical;line-height:1.6;
-}
+textarea#congrats-text{width:100%;min-height:80px;background:rgba(255,255,255,.05);border:1px solid rgba(162,134,21,.4);border-radius:10px;padding:12px 18px;color:#fff;font-family:'Cairo',sans-serif;outline:none;font-size:1rem;resize:vertical;line-height:1.6;}
 textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px rgba(162,134,21,.3);}
-
 .congrats-send-row{display:flex;justify-content:flex-end;margin-top:8px;}
-.congrats-btn{
-  background:var(--gold);color:var(--bg-deep);border:none;
-  border-radius:10px;padding:10px 28px;font-weight:700;
-  cursor:pointer;transition:all .3s ease;font-family:'Cairo',sans-serif;font-size:.95rem;
-}
+.congrats-btn{background:var(--gold);color:var(--bg-deep);border:none;border-radius:10px;padding:10px 28px;font-weight:700;cursor:pointer;transition:all .3s ease;font-family:'Cairo',sans-serif;font-size:.95rem;}
 .congrats-btn:hover{background:var(--gold-light);transform:scale(1.03);}
 
-#congrats-list{margin-top:16px;max-height:500px;overflow-y:auto;overflow-x:hidden;}
+/* ── comment list: slightly wider ── */
+#congrats-list{
+  margin-top:16px;max-height:500px;overflow-y:auto;overflow-x:hidden;
+  margin-left:-14px;margin-right:-14px;
+  padding-left:14px;padding-right:14px;
+}
 #congrats-list::-webkit-scrollbar{width:5px;}
 #congrats-list::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:10px;}
 #congrats-list::-webkit-scrollbar-thumb{background:var(--teal);border-radius:10px;}
 #congrats-list::-webkit-scrollbar-thumb:hover{background:var(--teal-light);}
 
+/* ── comment item ── */
 .c-item{background:rgba(255,255,255,.03);border-radius:10px;padding:14px;margin-bottom:10px;border-right:4px solid var(--gold);width:100%;}
-.c-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:6px;}
-.c-name{font-weight:700;color:var(--teal-light);font-size:.9rem;}
-.c-text{font-size:.92rem;line-height:1.6;margin-bottom:6px;word-break:break-word;white-space:pre-wrap;}
 
-/* date + (معدّل) on one line */
-.c-meta{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+/* name — right */
+.c-name{display:block;font-weight:700;color:var(--teal-light);font-size:.9rem;text-align:right;margin-bottom:4px;}
+
+/* text — right, RTL */
+.c-text{font-size:.92rem;line-height:1.6;margin-bottom:6px;word-break:break-word;white-space:pre-wrap;text-align:right;direction:rtl;}
+
+/* meta — left (ltr) */
+.c-meta{display:flex;align-items:center;gap:8px;margin-bottom:4px;direction:ltr;justify-content:flex-start;}
 .c-time{font-size:.7rem;color:var(--text-dim);}
 .c-edited{font-size:.68rem;color:var(--gold-light);}
 
-.c-btns{display:flex;gap:6px;justify-content:flex-start;margin-top:6px;}
+/* buttons — centred */
+.c-btns{display:flex;gap:6px;justify-content:center;margin-top:8px;}
 .c-btn-edit{background:rgba(9,127,130,.2);border:1px solid var(--teal);color:var(--mint);border-radius:6px;padding:3px 12px;font-size:.7rem;cursor:pointer;font-family:'Cairo',sans-serif;}
 .c-btn-del{background:rgba(180,30,30,.2);border:1px solid #c0392b;color:#ff6b6b;border-radius:6px;padding:3px 12px;font-size:.7rem;cursor:pointer;font-family:'Cairo',sans-serif;}
 
-/* ══ SHARE — platform logo images ══ */
+/* ══ SHARE ══ */
 .share-section{text-align:center;margin:30px 0;}
 .share-title{font-size:.8rem;color:var(--text-dim);margin-bottom:14px;letter-spacing:3px;}
 .share-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:nowrap;}
-.share-btn{
-  text-decoration:none;
-  width:52px;height:52px;border-radius:50%;
-  display:inline-flex;align-items:center;justify-content:center;
-  transition:all .3s ease;flex-shrink:0;
-  overflow:hidden;
-  background:#111;
-  border:1px solid rgba(255,255,255,.1);
-}
+.share-btn{text-decoration:none;width:52px;height:52px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;transition:all .3s ease;flex-shrink:0;overflow:hidden;background:#111;border:1px solid rgba(255,255,255,.1);}
 .share-btn img{width:32px;height:32px;object-fit:contain;border-radius:6px;}
 .share-btn:hover{transform:translateY(-3px) scale(1.1);box-shadow:0 6px 18px rgba(0,0,0,.35);}
 
-/* ── Footer ── */
-.footer-bar{text-align:center;padding:30px 0;border-top:1px solid rgba(9,127,130,.2);margin-top:20px;}
-/* ── Smaller footer text ── */
+/* ── ADMIN ── */
+.admin-wrap{text-align:center;margin-bottom:16px;}
+
+/* ── FOOTER — no extra space below ── */
+.footer-bar{
+  text-align:center;
+  padding:18px 0 14px;
+  border-top:1px solid rgba(9,127,130,.2);
+  margin-top:20px;
+}
 .footer-bar .copy{font-size:.68rem;color:var(--text-dim);}
 .footer-bar .copy span{color:var(--teal-light);font-weight:700;}
-
-/* admin */
-.admin-wrap{text-align:center;margin-bottom:16px;}
 
 @media(max-width:768px){
   .header-bar{flex-direction:column;gap:16px;text-align:center;}
@@ -416,7 +340,7 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
         <div class="shine-ring"></div>
       </div>
       <div class="researcher-name">محمد فرح محمد متولي</div>
-      <div class="researcher-title">المدرس المساعد بقسم أصول التربية
+      <div class="researcher-title">المدرس المساعد بقسم أصول التربية</div>
       <div class="researcher-title">كلية التربية بنين بالقاهرة - جامعة الأزهر</div>
     </div>
   </div>
@@ -498,38 +422,39 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
     </div>
   </div>
 
-  <!-- EVENT INFO BOXES — new 2-row layout -->
+  <!-- EVENT INFO BOXES -->
   <div class="event-info-wrapper">
     <!-- Row 1: Date + Time -->
     <div class="event-info-row1">
-      <!-- Date box (icon only, no label text) -->
       <div class="event-info-item date-box">
         <div class="event-info-icon date">📅</div>
         <div>
-          <span class="event-info-val">يوم الخميس<br>17/10/2026</span>
+          <span class="event-info-val">يوم الخميس</span>
+          <span class="event-info-val">17/10/2026</span>
         </div>
       </div>
-      <!-- Time box (icon only, no label text) -->
       <div class="event-info-item time-box">
         <div class="event-info-icon time">🕛</div>
         <div>
-          <span class="event-info-val">الساعة<br>12:00 ظهرًا</span>
+          <span class="event-info-val">الساعة</span>
+          <span class="event-info-val">12:00 ظهرًا</span>
         </div>
       </div>
     </div>
 
-    <!-- Row 2: Location (full width, pin icon, no label text) -->
+    <!-- Row 2: Location — two separate lines -->
     <div class="event-info-row2">
       <div class="event-info-item loc-box">
-        <!-- standard map-pin icon via SVG -->
-        <div class="event-info-icon location" style="font-size:1.5rem;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:block;">
+        <div class="event-info-icon location">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display:block;">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
           </svg>
         </div>
         <div>
-          <span class="event-infoo-vall">كلية التربية بنين بالقاهرة - جامعة الأزهر</span>
-           <span class="event-info-val">قاعة المناقشات (أ)</span>
+          <!-- line 1: university name (gold) -->
+          <span class="event-info-val-gold">كلية التربية بنين بالقاهرة - جامعة الأزهر</span>
+          <!-- line 2: hall -->
+          <span class="event-info-val">قاعة المناقشات (أ)</span>
         </div>
       </div>
     </div>
@@ -539,9 +464,7 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
   <div class="map-box">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.8!2d31.2667!3d30.0566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296e8423bba!2z2YPZhNim2Kkg2KfZhNiq2LHYqNmnINio2YbZitmGINio2KfZhNmC2KfZh2Hy2KnYjNim!5e0!3m2!1sar!2seg!4v1714000000000"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
     </iframe>
     <div class="map-label">📍 كلية التربية بنين بالقاهرة – جامعة الأزهر</div>
   </div>
@@ -549,9 +472,7 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
   <!-- COUNTDOWN -->
   <div class="countdown-section">
     <div class="countdown-title">◈ العد التنازلي للمناقشة ◈</div>
-    <div id="countdown-done" class="countdown-done" style="display:none;">
-      تمت المناقشة بحمد الله وتوفيقه 🎓
-    </div>
+    <div id="countdown-done" class="countdown-done" style="display:none;">تمت المناقشة بحمد الله وتوفيقه 🎓</div>
     <div id="countdown-live">
       <div class="countdown-grid">
         <div class="count-box"><span class="count-num" id="days">00</span><span class="count-label">أيام</span></div>
@@ -565,38 +486,25 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
   <!-- CONGRATS BOX -->
   <div class="congrats-box">
     <h4>◈ اكتب تهنئة للباحث ◈</h4>
-
     <div class="input-row">
       <input id="congrats-name" type="text" placeholder="اسمك.. (اختياري)">
     </div>
-
     <textarea id="congrats-text" placeholder="اكتب تهنئتك هنا..."></textarea>
-
     <div class="congrats-send-row">
       <button class="congrats-btn" onclick="submitCongrats()">إرسال</button>
     </div>
-
     <div id="congrats-count" style="font-size:.8rem;color:var(--text-dim);margin:10px 0 4px;text-align:center;"></div>
     <div id="congrats-list"></div>
   </div>
 
-  <!-- SHARE — platform logo images -->
+  <!-- SHARE -->
   <div class="share-section">
     <div class="share-title">◈ شارك الدعوة ◈</div>
     <div class="share-buttons">
-      <!--
-        ════════════════════════════════════════════════════════════════
-        أسماء ملفات الشعارات المطلوبة في مجلد images/:
-          facebook.png  ← شعار فيسبوك
-          x.png         ← شعار X (تويتر)
-          whatsapp.png  ← شعار واتساب
-          telegram.png  ← شعار تيليجرام
-        ════════════════════════════════════════════════════════════════
-      -->
       <a class="share-btn" href="#" onclick="shareOn('facebook');return false;" title="Facebook">
         <img src="images/facebook.png" alt="Facebook">
       </a>
-      <a class="share-btn" href="#" onclick="shareOn('x');return false;" title="X (Twitter)">
+      <a class="share-btn" href="#" onclick="shareOn('x');return false;" title="X">
         <img src="images/x.png" alt="X">
       </a>
       <a class="share-btn" href="#" onclick="shareOn('whatsapp');return false;" title="WhatsApp">
@@ -608,40 +516,28 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
     </div>
   </div>
 
-  <!-- ADMIN PANEL -->
+  <!-- ADMIN -->
   <div class="admin-wrap">
     <div id="admin-status" style="margin-bottom:10px;font-size:.82rem;"></div>
     <button id="admin-toggle-btn" onclick="showAdminLogin()"
-      style="background:transparent;border:1px solid rgba(9,127,130,.2);
-             color:rgba(9,127,130,.3);border-radius:8px;padding:4px 14px;
-             font-size:.65rem;cursor:pointer;"
+      style="background:transparent;border:1px solid rgba(9,127,130,.2);color:rgba(9,127,130,.3);border-radius:8px;padding:4px 14px;font-size:.65rem;cursor:pointer;"
       onmouseover="this.style.borderColor='#0ba8ac';this.style.color='#0ba8ac'"
-      onmouseout="this.style.borderColor='rgba(9,127,130,.2)';this.style.color='rgba(9,127,130,.3)'">
-      ⚙️ إدارة
-    </button>
+      onmouseout="this.style.borderColor='rgba(9,127,130,.2)';this.style.color='rgba(9,127,130,.3)'">⚙️ إدارة</button>
     <div id="admin-login-box"
-      style="display:none;margin-top:14px;background:rgba(5,26,27,.9);
-             border:1px solid rgba(9,127,130,.4);border-radius:14px;
-             padding:20px;max-width:340px;margin-left:auto;margin-right:auto;">
+      style="display:none;margin-top:14px;background:rgba(5,26,27,.9);border:1px solid rgba(9,127,130,.4);border-radius:14px;padding:20px;max-width:340px;margin-left:auto;margin-right:auto;">
       <p style="font-size:.85rem;color:var(--teal-light);margin-bottom:12px;">🔐 دخول المدير</p>
       <input id="admin-pass-input" type="password" placeholder="كلمة السر..."
         onkeydown="if(event.key==='Enter') adminLogin()"
-        style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(9,127,130,.4);
-               border-radius:8px;padding:10px 14px;color:#fff;
-               font-family:'Cairo',sans-serif;outline:none;margin-bottom:10px;">
+        style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(9,127,130,.4);border-radius:8px;padding:10px 14px;color:#fff;font-family:'Cairo',sans-serif;outline:none;margin-bottom:10px;">
       <p id="admin-pass-error" style="display:none;color:#ff6b6b;font-size:.75rem;margin-bottom:8px;">❌ كلمة السر غير صحيحة</p>
       <div style="display:flex;gap:10px;">
-        <button onclick="adminLogin()"
-          style="flex:1;background:#097f82;color:#fff;border:none;border-radius:8px;
-                 padding:8px 0;font-family:'Cairo',sans-serif;font-weight:700;cursor:pointer;">دخول</button>
-        <button onclick="cancelAdminLogin()"
-          style="flex:1;background:rgba(255,255,255,.06);color:var(--text-dim);border:1px solid rgba(255,255,255,.12);
-                 border-radius:8px;padding:8px 0;font-family:'Cairo',sans-serif;cursor:pointer;">إلغاء</button>
+        <button onclick="adminLogin()" style="flex:1;background:#097f82;color:#fff;border:none;border-radius:8px;padding:8px 0;font-family:'Cairo',sans-serif;font-weight:700;cursor:pointer;">دخول</button>
+        <button onclick="cancelAdminLogin()" style="flex:1;background:rgba(255,255,255,.06);color:var(--text-dim);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:8px 0;font-family:'Cairo',sans-serif;cursor:pointer;">إلغاء</button>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- FOOTER — last element in page, no space below -->
   <div class="footer-bar">
     <div class="copy">جميع حقوق الفكرة والبرمجة محفوظة © <span>محمد فرح 2026</span></div>
   </div>
@@ -664,153 +560,97 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
     appId: "1:722031681124:web:0d45ca14b0413d9954c971"
   };
 
-  const ADMIN_PASSWORD = "ضع_كلمتك_السرية_هنا"; // ← غيّر هذه
-
+  const ADMIN_PASSWORD = "ضع_كلمتك_السرية_هنا";
   const app = initializeApp(firebaseConfig);
   const db  = getDatabase(app);
   const congratsRef = ref(db, "congrats");
 
   let myToken = localStorage.getItem("congrats_token");
-  if (!myToken) {
-    myToken = "tk_" + Math.random().toString(36).slice(2) + Date.now();
-    localStorage.setItem("congrats_token", myToken);
-  }
+  if (!myToken) { myToken = "tk_" + Math.random().toString(36).slice(2) + Date.now(); localStorage.setItem("congrats_token", myToken); }
 
   let isAdmin = sessionStorage.getItem("admin_logged") === "yes";
 
-  // ── إرسال تهنئة ──
   window.submitCongrats = function () {
     const nameEl = document.getElementById("congrats-name");
     const textEl = document.getElementById("congrats-text");
-    const name   = nameEl.value.trim() || "زائر";
-    const text   = textEl.value.trim();
-    if (!text) {
-      alert("من فضلك اكتب التهنئة");
-      return;
-    }
-    push(congratsRef, {
-      name, text,
-      time: new Date().toLocaleString("ar-EG"),
-      ts: Date.now(),
-      token: myToken
-    });
-    nameEl.value = "";
-    textEl.value = "";
+    const name = nameEl.value.trim() || "زائر";
+    const text = textEl.value.trim();
+    if (!text) { alert("من فضلك اكتب التهنئة"); return; }
+    push(congratsRef, { name, text, time: new Date().toLocaleString("ar-EG"), ts: Date.now(), token: myToken });
+    nameEl.value = ""; textEl.value = "";
   };
 
-  // ── حذف ──
   window.deleteCongrats = function (id, token) {
-    const isOwner = (token === myToken);
-    if (!isOwner && !isAdmin) return;
-    if (confirm("هل تريد حذف هذه التهنئة؟")) {
-      remove(ref(db, "congrats/" + id));
-    }
+    if (token !== myToken && !isAdmin) return;
+    if (confirm("هل تريد حذف هذه التهنئة؟")) remove(ref(db, "congrats/" + id));
   };
 
-  // ── تعديل — textarea موسّعة ──
   window.editCongrats = function (id, oldText, token) {
     if (token !== myToken) return;
-    // Create a modal-style dialog with a large textarea
     const overlay = document.createElement("div");
-    overlay.style.cssText =
-      "position:fixed;inset:0;background:rgba(3,15,16,.85);z-index:9999;" +
-      "display:flex;align-items:center;justify-content:center;padding:20px;";
-
+    overlay.style.cssText = "position:fixed;inset:0;background:rgba(3,15,16,.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;";
     const box = document.createElement("div");
-    box.style.cssText =
-      "background:#051a1b;border:1px solid #097f82;border-radius:16px;" +
-      "padding:24px;width:100%;max-width:520px;font-family:Cairo,sans-serif;direction:rtl;";
-
+    box.style.cssText = "background:#051a1b;border:1px solid #097f82;border-radius:16px;padding:24px;width:100%;max-width:520px;font-family:Cairo,sans-serif;direction:rtl;";
     const title = document.createElement("p");
     title.style.cssText = "color:#0ba8ac;font-size:.9rem;margin-bottom:12px;font-weight:700;";
     title.textContent = "✏️ تعديل التهنئة";
-
     const ta = document.createElement("textarea");
     ta.value = oldText;
-    ta.style.cssText =
-      "width:100%;min-height:160px;background:rgba(255,255,255,.05);" +
-      "border:1px solid #d4af3a;border-radius:10px;padding:12px 16px;" +
-      "color:#e8f8f7;font-family:Cairo,sans-serif;font-size:1rem;" +
-      "outline:none;resize:vertical;line-height:1.7;";
-
+    ta.style.cssText = "width:100%;min-height:160px;background:rgba(255,255,255,.05);border:1px solid #d4af3a;border-radius:10px;padding:12px 16px;color:#e8f8f7;font-family:Cairo,sans-serif;font-size:1rem;outline:none;resize:vertical;line-height:1.7;";
     const btns = document.createElement("div");
     btns.style.cssText = "display:flex;gap:10px;margin-top:14px;justify-content:flex-start;";
-
     const saveBtn = document.createElement("button");
     saveBtn.textContent = "حفظ";
-    saveBtn.style.cssText =
-      "background:#a28615;color:#030f10;border:none;border-radius:8px;" +
-      "padding:8px 24px;font-weight:700;cursor:pointer;font-family:Cairo,sans-serif;";
-
+    saveBtn.style.cssText = "background:#a28615;color:#030f10;border:none;border-radius:8px;padding:8px 24px;font-weight:700;cursor:pointer;font-family:Cairo,sans-serif;";
     const cancelBtn = document.createElement("button");
     cancelBtn.textContent = "إلغاء";
-    cancelBtn.style.cssText =
-      "background:rgba(255,255,255,.06);color:#8ecfcd;border:1px solid rgba(255,255,255,.12);" +
-      "border-radius:8px;padding:8px 18px;cursor:pointer;font-family:Cairo,sans-serif;";
-
+    cancelBtn.style.cssText = "background:rgba(255,255,255,.06);color:#8ecfcd;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:8px 18px;cursor:pointer;font-family:Cairo,sans-serif;";
     saveBtn.onclick = function () {
       const newText = ta.value.trim();
-      if (newText) {
-        update(ref(db, "congrats/" + id), { text: newText, edited: true });
-      }
+      if (newText) update(ref(db, "congrats/" + id), { text: newText, edited: true });
       document.body.removeChild(overlay);
     };
     cancelBtn.onclick = function () { document.body.removeChild(overlay); };
-
-    btns.appendChild(saveBtn);
-    btns.appendChild(cancelBtn);
-    box.appendChild(title);
-    box.appendChild(ta);
-    box.appendChild(btns);
-    overlay.appendChild(box);
-    document.body.appendChild(overlay);
+    btns.appendChild(saveBtn); btns.appendChild(cancelBtn);
+    box.appendChild(title); box.appendChild(ta); box.appendChild(btns);
+    overlay.appendChild(box); document.body.appendChild(overlay);
     setTimeout(function(){ ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }, 80);
   };
 
-  // ── رسم القائمة ──
   function renderList(snap) {
     const container = document.getElementById("congrats-list");
     const countEl   = document.getElementById("congrats-count");
     while (container.firstChild) container.removeChild(container.firstChild);
-
     if (!snap || !snap.exists()) {
       const p = document.createElement("p");
       p.style.cssText = "text-align:center;color:#8ecfcd;padding:20px;";
       p.textContent = "كن أول من يهنئ الباحث 🎉";
-      container.appendChild(p);
-      countEl.textContent = "";
-      return;
+      container.appendChild(p); countEl.textContent = ""; return;
     }
-
     const items = [];
-    snap.forEach(function(child) {
-      const v = child.val(); v._id = child.key; items.push(v);
-    });
+    snap.forEach(function(child){ const v = child.val(); v._id = child.key; items.push(v); });
     items.reverse();
-
     countEl.textContent = "◈ عدد التعليقات: " + items.length + " ◈";
 
     for (let i = 0; i < items.length; i++) {
       const c = items[i];
       const isOwner = (c.token === myToken);
-
       const wrap = document.createElement("div");
       wrap.className = "c-item";
 
-      const header = document.createElement("div");
-      header.className = "c-header";
+      // name — right
       const nameSpan = document.createElement("span");
       nameSpan.className = "c-name";
       nameSpan.textContent = "👤 " + (c.name || "زائر");
-      header.appendChild(nameSpan);
-      wrap.appendChild(header);
+      wrap.appendChild(nameSpan);
 
+      // text — right, RTL
       const textDiv = document.createElement("div");
       textDiv.className = "c-text";
       textDiv.textContent = c.text || "";
       wrap.appendChild(textDiv);
 
-      // time + (معدّل) on one line
+      // meta — left (LTR via CSS)
       const metaDiv = document.createElement("div");
       metaDiv.className = "c-meta";
       const timeSpan = document.createElement("span");
@@ -820,16 +660,15 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
       if (c.edited) {
         const edSpan = document.createElement("span");
         edSpan.className = "c-edited";
-        // wrapped in parentheses as requested
         edSpan.textContent = "· (معدّل)";
         metaDiv.appendChild(edSpan);
       }
       wrap.appendChild(metaDiv);
 
+      // buttons — centred
       if (isOwner || isAdmin) {
         const btns = document.createElement("div");
         btns.className = "c-btns";
-
         if (isOwner) {
           const editBtn = document.createElement("button");
           editBtn.className = "c-btn-edit";
@@ -838,17 +677,14 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
           editBtn.onclick = function() { window.editCongrats(cId, cText, cToken); };
           btns.appendChild(editBtn);
         }
-
         const delBtn = document.createElement("button");
         delBtn.className = "c-btn-del";
         delBtn.textContent = "🗑️ حذف";
         const cId2 = c._id, cToken2 = c.token;
         delBtn.onclick = function() { window.deleteCongrats(cId2, cToken2); };
         btns.appendChild(delBtn);
-
         wrap.appendChild(btns);
       }
-
       container.appendChild(wrap);
     }
   }
@@ -861,48 +697,38 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
       '<button onclick="adminLogout()" style="background:rgba(180,30,30,.3);border:1px solid #c0392b;color:#ff6b6b;border-radius:6px;padding:4px 14px;font-size:.75rem;cursor:pointer;font-family:Cairo,sans-serif;margin-right:8px;">تسجيل خروج</button>';
     document.getElementById("admin-toggle-btn").style.display = "none";
   }
-
   window.adminLogin = function () {
     const pass = document.getElementById("admin-pass-input").value;
     if (pass === ADMIN_PASSWORD) {
-      isAdmin = true;
-      sessionStorage.setItem("admin_logged", "yes");
+      isAdmin = true; sessionStorage.setItem("admin_logged","yes");
       document.getElementById("admin-login-box").style.display = "none";
       document.getElementById("admin-pass-error").style.display = "none";
       updateAdminUI();
       onValue(congratsRef, function(snap) { renderList(snap); });
-    } else {
-      document.getElementById("admin-pass-error").style.display = "block";
-    }
+    } else { document.getElementById("admin-pass-error").style.display = "block"; }
   };
-
   window.adminLogout = function () {
-    isAdmin = false;
-    sessionStorage.removeItem("admin_logged");
+    isAdmin = false; sessionStorage.removeItem("admin_logged");
     document.getElementById("admin-status").innerHTML = "";
     document.getElementById("admin-toggle-btn").style.display = "inline-block";
     onValue(congratsRef, function(snap) { renderList(snap); });
   };
-
   window.showAdminLogin = function () {
     document.getElementById("admin-login-box").style.display = "block";
     document.getElementById("admin-toggle-btn").style.display = "none";
     setTimeout(function(){ document.getElementById("admin-pass-input").focus(); }, 100);
   };
-
   window.cancelAdminLogin = function () {
     document.getElementById("admin-login-box").style.display = "none";
     document.getElementById("admin-toggle-btn").style.display = "inline-block";
     document.getElementById("admin-pass-input").value = "";
     document.getElementById("admin-pass-error").style.display = "none";
   };
-
   if (isAdmin) { setTimeout(updateAdminUI, 300); }
 </script>
 
-<!-- ══ Scripts العامة ══ -->
+<!-- ══ General Scripts ══ -->
 <script>
-// نقاط الخلفية
 const bg = document.getElementById('neural-bg');
 for(let i=0;i<40;i++){
   const dot=document.createElement('div');
@@ -914,36 +740,26 @@ for(let i=0;i<40;i++){
   dot.style.animationDelay=(Math.random()*5)+'s';
   bg.appendChild(dot);
 }
-
-// العد التنازلي
-const targetDate = new Date('2026-10-17T12:00:00').getTime();
-
+const targetDate=new Date('2026-10-17T12:00:00').getTime();
 function updateCountdown(){
-  const now  = new Date().getTime();
-  const diff = targetDate - now;
-  if(diff <= 0){
-    document.getElementById('countdown-live').style.display = 'none';
-    document.getElementById('countdown-done').style.display = 'block';
-    return;
-  }
-  document.getElementById('days').innerText    = Math.floor(diff/(1000*60*60*24)).toString().padStart(2,'0');
-  document.getElementById('hours').innerText   = Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0');
-  document.getElementById('minutes').innerText = Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0');
-  document.getElementById('seconds').innerText = Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0');
+  const now=new Date().getTime(),diff=targetDate-now;
+  if(diff<=0){document.getElementById('countdown-live').style.display='none';document.getElementById('countdown-done').style.display='block';return;}
+  document.getElementById('days').innerText=Math.floor(diff/(1000*60*60*24)).toString().padStart(2,'0');
+  document.getElementById('hours').innerText=Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0');
+  document.getElementById('minutes').innerText=Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0');
+  document.getElementById('seconds').innerText=Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0');
 }
 setInterval(updateCountdown,1000);
 updateCountdown();
-
-// المشاركة
 function shareOn(platform){
-  const url  = window.location.href;
-  const text = "تصفح الدعوة الإلكترونية لمناقشة الدكتوراه - محمد فرح متولي";
-  let shareUrl='';
-  if(platform==='facebook') shareUrl='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
-  if(platform==='x')        shareUrl='https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text);
-  if(platform==='whatsapp') shareUrl='https://api.whatsapp.com/send?text='+encodeURIComponent(text+' '+url);
-  if(platform==='telegram') shareUrl='https://t.me/share/url?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text);
-  window.open(shareUrl,'_blank');
+  const url=window.location.href;
+  const text="تصفح الدعوة الإلكترونية لمناقشة الدكتوراه - محمد فرح متولي";
+  let s='';
+  if(platform==='facebook') s='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
+  if(platform==='x')        s='https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text);
+  if(platform==='whatsapp') s='https://api.whatsapp.com/send?text='+encodeURIComponent(text+' '+url);
+  if(platform==='telegram') s='https://t.me/share/url?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text);
+  window.open(s,'_blank');
 }
 </script>
 </body>
