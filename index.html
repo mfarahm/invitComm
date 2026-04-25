@@ -505,11 +505,11 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
       <a class="share-btn" href="#" onclick="shareOn('facebook');return false;" title="Facebook">
         <img src="images/facebook.png" alt="Facebook">
       </a>
-      <a class="share-btn" href="#" onclick="shareOn('x');return false;" title="X">
-        <img src="images/x.png" alt="X">
-      </a>
       <a class="share-btn" href="#" onclick="shareOn('whatsapp');return false;" title="WhatsApp">
         <img src="images/whatsapp.png" alt="WhatsApp">
+      </a>
+      <a class="share-btn" href="#" onclick="shareOn('x');return false;" title="X">
+        <img src="images/x.png" alt="X">
       </a>
       <a class="share-btn" href="#" onclick="shareOn('telegram');return false;" title="Telegram">
         <img src="images/telegram.png" alt="Telegram">
@@ -561,7 +561,7 @@ textarea#congrats-text:focus{border-color:var(--gold-light);box-shadow:0 0 15px 
     appId: "1:722031681124:web:0d45ca14b0413d9954c971"
   };
 
-  const ADMIN_PASSWORD = "ضع_كلمتك_السرية_هنا";
+  const ADMIN_PASSWORD = "333555";
   const app = initializeApp(firebaseConfig);
   const db  = getDatabase(app);
   const congratsRef = ref(db, "congrats");
@@ -754,7 +754,7 @@ setInterval(updateCountdown,1000);
 updateCountdown();
 function shareOn(platform){
   const url=window.location.href;
-  const text="تصفح الدعوة الإلكترونية لمناقشة الدكتوراه - محمد فرح متولي";
+  const text="تصفح الدعوة الإلكترونية لمناقشة رسالة الدكتوراه - محمد فرح متولي";
   let s='';
   if(platform==='facebook') s='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
   if(platform==='x')        s='https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text);
