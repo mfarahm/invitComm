@@ -47,20 +47,14 @@ body::before {
 .neural-dot{position:absolute;border-radius:50%;background:var(--teal);opacity:.15;animation:floatDot linear infinite;}
 @keyframes floatDot{0%{transform:translateY(110vh) scale(0);opacity:0}10%{opacity:.15}90%{opacity:.15}100%{transform:translateY(-10vh) scale(1);opacity:0}}
 
-.ai-circuit{position:fixed;top:0;right:0;width:280px;height:280px;pointer-events:none;z-index:0;opacity:.05;}
-
 .page-wrapper{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:20px 16px 60px;}
 
-/* ── HEADER ── */
+/* HEADER */
 .header-bar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  display:flex;justify-content:space-between;align-items:center;
   padding:20px 28px;
   background:linear-gradient(135deg,rgba(9,127,130,.22),rgba(5,26,27,.9));
-  border:1px solid rgba(9,127,130,.4);
-  border-radius:18px;
-  margin-bottom:8px;
+  border:1px solid rgba(9,127,130,.4);border-radius:18px;margin-bottom:8px;
   backdrop-filter:blur(12px);
   box-shadow:0 0 40px rgba(9,127,130,.15),inset 0 1px 0 rgba(196,239,230,.1);
 }
@@ -69,22 +63,15 @@ body::before {
 .uni-info .uni-sub{font-size:.82rem;color:var(--text-dim);line-height:1.7;}
 .logos{display:flex;gap:14px;align-items:center;}
 
-/* ── Logo Circles with Glow ── */
 .logo-circle{
-  width:86px;height:86px;border-radius:50%;
-  border:2px solid var(--teal);
+  width:86px;height:86px;border-radius:50%;border:2px solid var(--teal);
   overflow:hidden;position:relative;
-  box-shadow:0 0 0 4px rgba(9,127,130,.15),
-             0 0 20px rgba(9,127,130,.35),
-             0 0 40px rgba(9,127,130,.15);
-  animation:logoPulse 3s ease-in-out infinite;
-  cursor:pointer;
+  box-shadow:0 0 0 4px rgba(9,127,130,.15),0 0 20px rgba(9,127,130,.35),0 0 40px rgba(9,127,130,.15);
+  animation:logoPulse 3s ease-in-out infinite;cursor:pointer;
 }
 .logo-circle.gold-ring{
   border-color:var(--gold-light);
-  box-shadow:0 0 0 4px rgba(162,134,21,.12),
-             0 0 20px rgba(162,134,21,.4),
-             0 0 40px rgba(162,134,21,.15);
+  box-shadow:0 0 0 4px rgba(162,134,21,.12),0 0 20px rgba(162,134,21,.4),0 0 40px rgba(162,134,21,.15);
   animation:logoPulseGold 3s ease-in-out infinite;
 }
 .logo-circle img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -97,168 +84,77 @@ body::before {
 @keyframes logoPulseGold{0%,100%{box-shadow:0 0 0 4px rgba(162,134,21,.12),0 0 20px rgba(162,134,21,.4)}50%{box-shadow:0 0 0 6px rgba(162,134,21,.22),0 0 35px rgba(162,134,21,.7),0 0 60px rgba(162,134,21,.2)}}
 @keyframes shineRotate{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 
-/* ── INVITATION TITLE IMAGE ── */
 .invite-title-wrap{text-align:center;padding:24px 0 14px;}
 .invite-img{max-width:200px;width:90%;height:auto;display:inline-block;}
 
-/* ── ANNOUNCEMENT ── */
 .announcement{
   background:linear-gradient(135deg,rgba(9,127,130,.15),rgba(5,26,27,.6));
-  border:1px solid rgba(9,127,130,.3);
-  border-radius:14px;
-  padding:24px 32px;
-  text-align:center;
-  margin-bottom:14px;
-  position:relative;overflow:hidden;
+  border:1px solid rgba(9,127,130,.3);border-radius:14px;padding:24px 32px;
+  text-align:center;margin-bottom:14px;position:relative;overflow:hidden;
 }
 .announcement::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(transparent 0deg,rgba(9,127,130,.04) 60deg,transparent 120deg);animation:rotateBg 15s linear infinite;}
 @keyframes rotateBg{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 .announcement p{position:relative;font-size:1.05rem;line-height:2.1;color:var(--mint);}
 
-/* ── THESIS CARD ── */
 .thesis-card{
   background:linear-gradient(135deg,rgba(162,134,21,.12),rgba(9,127,130,.08));
-  border:2px solid var(--gold);
-  border-radius:18px;
-  padding:28px 36px;
-  text-align:center;
-  margin:14px 0;
-  position:relative;
+  border:2px solid var(--gold);border-radius:18px;padding:28px 36px;
+  text-align:center;margin:14px 0;position:relative;
   box-shadow:0 0 40px rgba(162,134,21,.15),inset 0 0 60px rgba(162,134,21,.04);
 }
 .thesis-card::before,.thesis-card::after{content:'';position:absolute;width:60px;height:60px;border-color:var(--teal-light);border-style:solid;}
 .thesis-card::before{top:-1px;right:-1px;border-width:2px 2px 0 0;border-radius:0 18px 0 0;}
 .thesis-card::after{bottom:-1px;left:-1px;border-width:0 0 2px 2px;border-radius:0 0 0 18px;}
-.thesis-label{font-size:.88rem;color:var(--teal-light);letter-spacing:3px;margin-bottom:14px;font-family:'Orbitron',sans-serif;}
 .thesis-title{font-family:'Amiri',serif;font-size:1.55rem;font-weight:700;color:#fff;line-height:1.9;text-shadow:0 2px 20px rgba(162,134,21,.3);}
 .thesis-title .highlight{color:var(--gold-light);text-shadow:0 0 20px rgba(162,134,21,.6);}
-.chatbot-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,var(--teal-dark),var(--teal));border:1px solid var(--teal-light);border-radius:30px;padding:6px 18px;font-size:.82rem;color:var(--mint);margin-top:14px;font-family:'Orbitron',sans-serif;letter-spacing:1px;box-shadow:0 0 20px rgba(9,127,130,.4);animation:badgePulse 2s ease-in-out infinite;}
-@keyframes badgePulse{0%,100%{box-shadow:0 0 20px rgba(9,127,130,.4)}50%{box-shadow:0 0 40px rgba(9,127,130,.8)}}
 
-/* ── RESEARCHER ── */
 .researcher-section{text-align:center;margin:22px 0 10px;}
 .researcher-section .label{font-size:.88rem;color:var(--text-dim);margin-bottom:14px;letter-spacing:2px;}
 .researcher-card{display:inline-flex;flex-direction:column;align-items:center;gap:12px;}
 .researcher-name{font-family:'Amiri',serif;font-size:1.45rem;font-weight:700;color:var(--gold-light);text-shadow:0 0 15px rgba(162,134,21,.4);}
 .researcher-title{font-size:.82rem;color:var(--text-dim);line-height:1.6;}
 
-/* ── PERSON PHOTO CIRCLE ── */
 .photo-wrap{
   position:relative;display:inline-block;border-radius:50%;
   animation:personPulse 3.5s ease-in-out infinite;
-  border: 2px solid var(--teal);
-  overflow: hidden;
+  border:2px solid var(--teal);overflow:hidden;
 }
-.photo-wrap.gold-anim{animation:personPulseGold 3.5s ease-in-out infinite; border-color: var(--gold-light);}
-@keyframes personPulse{
-  0%,100%{box-shadow:0 0 0 4px rgba(9,127,130,.15),0 0 20px rgba(9,127,130,.35)}50%{box-shadow:0 0 0 6px rgba(9,127,130,.25),0 0 35px rgba(9,127,130,.7),0 0 60px rgba(9,127,130,.2)}
-}
-@keyframes personPulseGold{
-  0%,100%{box-shadow:0 0 0 4px rgba(162,134,21,.12),0 0 20px rgba(162,134,21,.4)}50%{box-shadow:0 0 0 6px rgba(162,134,21,.22),0 0 35px rgba(162,134,21,.7),0 0 60px rgba(162,134,21,.2)}
-}
+.photo-wrap.gold-anim{animation:personPulseGold 3.5s ease-in-out infinite;border-color:var(--gold-light);}
+@keyframes personPulse{0%,100%{box-shadow:0 0 0 4px rgba(9,127,130,.15),0 0 20px rgba(9,127,130,.35)}50%{box-shadow:0 0 0 6px rgba(9,127,130,.25),0 0 35px rgba(9,127,130,.7),0 0 60px rgba(9,127,130,.2)}}
+@keyframes personPulseGold{0%,100%{box-shadow:0 0 0 4px rgba(162,134,21,.12),0 0 20px rgba(162,134,21,.4)}50%{box-shadow:0 0 0 6px rgba(162,134,21,.22),0 0 35px rgba(162,134,21,.7),0 0 60px rgba(162,134,21,.2)}}
 .photo-wrap img{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover;}
-.photo-wrap .shine-ring{
-  position:absolute;inset:-3px;border-radius:50%;
-  background:conic-gradient(transparent 0deg,rgba(255,255,255,.2) 60deg,transparent 120deg);
-  animation:shineRotate 3s linear infinite;
-  pointer-events:none;
-}
-
-/* researcher large */
+.photo-wrap .shine-ring{position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(transparent 0deg,rgba(255,255,255,.2) 60deg,transparent 120deg);animation:shineRotate 3s linear infinite;pointer-events:none;}
 .photo-wrap.researcher-size{width:120px;height:120px;}
-/* member card size */
 .photo-wrap.member-size{width:82px;height:82px;margin:0 auto 12px;}
 
-/* ── SECTION HEADER ── */
 .section-header{text-align:center;margin:28px 0 16px;position:relative;}
 .section-header h3{display:inline-block;font-family:'Cairo',sans-serif;font-size:1.1rem;font-weight:700;color:var(--teal-light);letter-spacing:3px;background:var(--bg-deep);padding:0 20px;position:relative;z-index:1;}
 .section-header::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);}
 
-/* ── COMMITTEE GRID ── */
-.committee-grid{
-  display:flex;
-  flex-wrap:nowrap;
-  justify-content:center;
-  gap:16px;
-  margin-bottom:8px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.member-card{
-  background:linear-gradient(135deg,rgba(9,127,130,.1),rgba(5,26,27,.8));
-  border:1px solid rgba(9,127,130,.3);
-  border-radius:14px;
-  padding:18px 14px;
-  text-align:center;
-  transition:all .3s ease;
-  position:relative;overflow:hidden;
-  width:210px;
-  flex-shrink:0;
-}
+.committee-grid{display:flex;flex-wrap:nowrap;justify-content:center;gap:16px;margin-bottom:8px;max-width:800px;margin-left:auto;margin-right:auto;}
+.member-card{background:linear-gradient(135deg,rgba(9,127,130,.1),rgba(5,26,27,.8));border:1px solid rgba(9,127,130,.3);border-radius:14px;padding:18px 14px;text-align:center;transition:all .3s ease;position:relative;overflow:hidden;width:210px;flex-shrink:0;}
 .member-card:hover{border-color:var(--teal);box-shadow:0 0 30px rgba(9,127,130,.3);transform:translateY(-4px);}
 .member-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal-light),transparent);}
 .member-name{font-family:'Amiri',serif;font-size:1rem;font-weight:700;color:#fff;line-height:1.6;margin-bottom:4px;}
 .member-role{font-size:.72rem;color:var(--gold-light);line-height:1.5;margin-bottom:4px;}
 .member-uni{font-size:.68rem;color:var(--text-dim);line-height:1.5;}
 
-/* ── COUNTDOWN ── */
-.countdown-section{
-  background:linear-gradient(135deg,rgba(9,127,130,.2),rgba(162,134,21,.08));
-  border:1px solid rgba(9,127,130,.4);
-  border-radius:18px;
-  padding:28px;
-  text-align:center;
-  margin:24px 0;
-  box-shadow:0 0 50px rgba(9,127,130,.15);
-}
+.countdown-section{background:linear-gradient(135deg,rgba(9,127,130,.2),rgba(162,134,21,.08));border:1px solid rgba(9,127,130,.4);border-radius:18px;padding:28px;text-align:center;margin:24px 0;box-shadow:0 0 50px rgba(9,127,130,.15);}
 .countdown-title{font-size:.85rem;color:var(--teal-light);letter-spacing:4px;margin-bottom:6px;font-family:'Orbitron',sans-serif;}
 .countdown-date{font-family:'Amiri',serif;font-size:1.05rem;color:var(--gold-light);margin-bottom:20px;line-height:1.8;}
 .countdown-grid{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
-.count-box{
-  background:linear-gradient(135deg,rgba(9,127,130,.25),rgba(5,26,27,.9));
-  border:1px solid var(--teal);
-  border-radius:12px;
-  padding:14px 22px;
-  min-width:84px;
-  box-shadow:0 0 20px rgba(9,127,130,.2);
-}
-.count-num{
-  font-family:'Orbitron', sans-serif; /* Changed from Share Tech Mono to Orbitron */
-  font-size:2.4rem;
-  font-weight:700;
-  color:var(--teal-light);
-  display:block;
-  line-height:1;
-  margin-bottom:6px;
-  text-shadow:0 0 10px rgba(11,168,172,.5);
-}
+.count-box{background:linear-gradient(135deg,rgba(9,127,130,.25),rgba(5,26,27,.9));border:1px solid var(--teal);border-radius:12px;padding:14px 22px;min-width:84px;box-shadow:0 0 20px rgba(9,127,130,.2);}
+.count-num{font-family:'Orbitron',sans-serif;font-size:2.4rem;font-weight:700;color:var(--teal-light);display:block;line-height:1;margin-bottom:6px;text-shadow:0 0 10px rgba(11,168,172,.5);}
 .count-label{font-size:.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;}
 
-/* ── INFO BAR ── */
-.info-bar{
-  display:flex;
-  justify-content:center;
-  gap:24px;
-  margin:24px 0;
-  flex-wrap:wrap;
-  text-align: center;
-}
-.info-item{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  background:rgba(9,127,130,.1);
-  border:1px solid rgba(9,127,130,.2);
-  padding:12px 20px;
-  border-radius:12px;
-}
+.info-bar{display:flex;justify-content:center;gap:24px;margin:24px 0;flex-wrap:wrap;text-align:center;}
+.info-item{display:flex;align-items:center;gap:12px;background:rgba(9,127,130,.1);border:1px solid rgba(9,127,130,.2);padding:12px 20px;border-radius:12px;}
 .info-icon{font-size:1.4rem;}
 .info-text{text-align:right;}
 .info-val{font-size:.95rem;font-weight:700;color:var(--mint);display:block;}
 .info-lab{font-size:.72rem;color:var(--text-dim);}
 
-/* ── CONGRATS BOX ── */
+/* ══ CONGRATS ══ */
 .congrats-box{
   background:linear-gradient(135deg,rgba(162,134,21,.15),rgba(5,26,27,.9));
   border:1px solid var(--gold);
@@ -268,41 +164,53 @@ body::before {
   box-shadow:0 0 40px rgba(162,134,21,.1);
 }
 .congrats-box h4{text-align:center;font-family:'Amiri',serif;font-size:1.4rem;color:var(--gold-light);margin-bottom:22px;}
-.congrats-input-wrap{display:flex;gap:12px;margin-bottom:24px;}
-.congrats-input-wrap input{
-  flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(162,134,21,.4);
-  border-radius:10px;padding:12px 18px;color:#fff;font-family:'Cairo',sans-serif;outline:none;
-}
+.congrats-input-wrap{display:flex;gap:12px;margin-bottom:12px;}
+.congrats-input-wrap input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(162,134,21,.4);border-radius:10px;padding:12px 18px;color:#fff;font-family:'Cairo',sans-serif;outline:none;}
 .congrats-input-wrap input:focus{border-color:var(--gold-light);box-shadow:0 0 15px rgba(162,134,21,.3);}
-.congrats-btn{
-  background:var(--gold);color:var(--bg-deep);border:none;border-radius:10px;
-  padding:0 24px;font-weight:700;cursor:pointer;transition:all .3s ease;
-}
+.congrats-btn{background:var(--gold);color:var(--bg-deep);border:none;border-radius:10px;padding:0 24px;font-weight:700;cursor:pointer;transition:all .3s ease;font-family:'Cairo',sans-serif;}
 .congrats-btn:hover{background:var(--gold-light);transform:scale(1.03);}
 
-.congrats-list{max-height:300px;overflow-y:auto;padding-right:8px;}
-.congrats-item{background:rgba(255,255,255,.03);border-radius:10px;padding:14px;margin-bottom:12px;border-right:4px solid var(--gold);}
-.c-text{font-size:.92rem;line-height:1.6;margin-bottom:6px;}
-.c-time{font-size:.7rem;color:var(--text-dim);text-align:left;}
+#congrats-list{
+  margin-top:16px;
+  max-height:450px;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+#congrats-list::-webkit-scrollbar{width:5px;}
+#congrats-list::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:10px;}
+#congrats-list::-webkit-scrollbar-thumb{background:var(--teal);border-radius:10px;}
+#congrats-list::-webkit-scrollbar-thumb:hover{background:var(--teal-light);}
 
-/* ── FOOTER ── */
-.footer-bar{text-align:center;padding:30px 0;border-top:1px solid rgba(9,127,130,.2);margin-top:40px;}
-.footer-bar .copy{font-size:.78rem;color:var(--text-dim);}
-.footer-bar .copy span{color:var(--teal-light);font-weight:700;}
+.c-item{
+  background:rgba(255,255,255,.03);
+  border-radius:10px;
+  padding:14px;
+  margin-bottom:10px;
+  border-right:4px solid var(--gold);
+  width:100%;
+}
+.c-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:6px;}
+.c-name{font-weight:700;color:var(--teal-light);font-size:.9rem;}
+.c-btns{display:flex;gap:6px;}
+.c-btn-edit{background:rgba(9,127,130,.2);border:1px solid var(--teal);color:var(--mint);border-radius:6px;padding:3px 10px;font-size:.7rem;cursor:pointer;font-family:'Cairo',sans-serif;}
+.c-btn-del{background:rgba(180,30,30,.2);border:1px solid #c0392b;color:#ff6b6b;border-radius:6px;padding:3px 10px;font-size:.7rem;cursor:pointer;font-family:'Cairo',sans-serif;}
+.c-text{font-size:.92rem;line-height:1.6;margin-bottom:4px;word-break:break-word;}
+.c-time{font-size:.7rem;color:var(--text-dim);}
+.c-edited{font-size:.65rem;color:var(--text-dim);margin-right:6px;}
 
-/* ── SHARE ── */
 .share-section{text-align:center;margin:30px 0;}
 .share-title{font-size:.8rem;color:var(--text-dim);margin-bottom:14px;letter-spacing:3px;}
 .share-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
-.share-btn{
-  text-decoration:none;padding:8px 18px;border-radius:30px;font-size:.75rem;font-weight:700;
-  display:inline-flex;align-items:center;gap:8px;transition:all .3s ease;
-}
+.share-btn{text-decoration:none;padding:8px 18px;border-radius:30px;font-size:.75rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all .3s ease;}
 .share-fb{background:#1877f2;color:#fff;}
 .share-x{background:#000;color:#fff;border:1px solid #333;}
 .share-wa{background:#25d366;color:#fff;}
 .share-tg{background:#0088cc;color:#fff;}
 .share-btn:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.3);}
+
+.footer-bar{text-align:center;padding:30px 0;border-top:1px solid rgba(9,127,130,.2);margin-top:40px;}
+.footer-bar .copy{font-size:.78rem;color:var(--text-dim);}
+.footer-bar .copy span{color:var(--teal-light);font-weight:700;}
 
 @media(max-width:768px){
   .header-bar{flex-direction:column;gap:20px;text-align:center;}
@@ -311,6 +219,7 @@ body::before {
   .thesis-title{font-size:1.3rem;}
   .count-box{min-width:70px;padding:10px 14px;}
   .count-num{font-size:1.8rem;}
+  .committee-grid{flex-wrap:wrap;}
 }
 </style>
 </head>
@@ -358,15 +267,15 @@ body::before {
   <!-- THESIS CARD -->
   <div class="thesis-card">
     <div class="thesis-title">
-    استراتيجية مقترحة لتوظيف
-    <br>
-    <span class="highlight">روبوتات المحادثة Chatbots</span>
-    <br>
-    في التعليم الجامعي بمصر من منظور 
-    <br>
-    <span class="highlight">فلسفة الذكاء الاصطناعي المسؤول</span>
+      استراتيجية مقترحة لتوظيف
+      <br>
+      <span class="highlight">روبوتات المحادثة Chatbots</span>
+      <br>
+      في التعليم الجامعي بمصر من منظور فلسفة
+      <br>
+      <span class="highlight">الذكاء الاصطناعي المسؤول</span>
+    </div>
   </div>
-</div>
 
   <!-- RESEARCHER -->
   <div class="researcher-section">
@@ -377,8 +286,8 @@ body::before {
         <div class="shine-ring"></div>
       </div>
       <div class="researcher-name">محمد فرح محمد متولي</div>
-      <div class="researcher-title">المدرس المساعد بقسم أصول التربية
-			 <div class="researcher-title">كلية التربية بنين بالقاهرة - جامعة الأزهر</div>
+      <div class="researcher-title">المدرس المساعد بقسم أصول التربية</div>
+      <div class="researcher-title">كلية التربية بنين بالقاهرة - جامعة الأزهر</div>
     </div>
   </div>
 
@@ -425,7 +334,7 @@ body::before {
       <div class="member-name">أ.د/ أحمد سمير فوزي عبد الله</div>
       <div class="member-role">أستاذ أصول التربية</div>
       <div class="member-uni">كلية التربية بنين بالقاهرة<br>جامعة الأزهر</div>
-			<div class="member-role">(مشرفًا ورئيسًا)</div>
+      <div class="member-role">(مشرفًا ورئيسًا)</div>
     </div>
     <div class="member-card">
       <div class="photo-wrap member-size">
@@ -435,7 +344,7 @@ body::before {
       <div class="member-name">أ.د/ محمود عبد اللطيف السيد</div>
       <div class="member-role">أستاذ أصول التربية</div>
       <div class="member-uni">كلية التربية بنين بالقاهرة<br>جامعة الأزهر</div>
-			<div class="member-role">(مشرفًا ورئيسًا)</div>
+      <div class="member-role">(مشرفًا ورئيسًا)</div>
     </div>
     <div class="member-card">
       <div class="photo-wrap member-size">
@@ -445,7 +354,7 @@ body::before {
       <div class="member-name">أ.د/ نسمة محمد عبد السلام</div>
       <div class="member-role">أستاذ أصول التربية</div>
       <div class="member-uni">كلية التربية<br>جامعة عين شمس</div>
-			<div class="member-role">(مشرفًا ورئيسًا)</div>
+      <div class="member-role">(مشرفًا ورئيسًا)</div>
     </div>
     <div class="member-card">
       <div class="photo-wrap member-size">
@@ -455,7 +364,7 @@ body::before {
       <div class="member-name">د/ ياسر علي علي عبد الغني</div>
       <div class="member-role">أستاذ تكنولوجيا التعليم المساعد</div>
       <div class="member-uni">كلية التربية بنين بالقاهرة<br>جامعة الأزهر</div>
-			<div class="member-role">(مشرفًا ورئيسًا)</div>
+      <div class="member-role">(مشرفًا ورئيسًا)</div>
     </div>
   </div>
 
@@ -490,104 +399,50 @@ body::before {
   </div>
 
   <!-- CONGRATS BOX -->
-<!-- Firebase SDK -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getDatabase, ref, push, onValue, remove, update }
-    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyA5xYXrZrrwA6ws8WRyMr2dIHXlWBVn3FE",
-    authDomain: "aaaaaa-5b453.firebaseapp.com",
-    databaseURL: "https://aaaaaa-5b453-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "aaaaaa-5b453",
-    storageBucket: "aaaaaa-5b453.firebasestorage.app",
-    messagingSenderId: "722031681124",
-    appId: "1:722031681124:web:0d45ca14b0413d9954c971"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db  = getDatabase(app);
-  const congratsRef = ref(db, "congrats");
-
-  window.submitCongrats = function () {
-    const nameEl = document.getElementById("congrats-name");
-    const textEl = document.getElementById("congrats-text");
-    const name = nameEl.value.trim();
-    const text = textEl.value.trim();
-    if (!name || !text) {
-      alert("من فضلك اكتب اسمك وكلمة التهنئة");
-      return;
-    }
-    push(congratsRef, {
-      name, text,
-      time: new Date().toLocaleString("ar-EG"),
-      ts: Date.now()
-    });
-    nameEl.value = "";
-    textEl.value = "";
-  };
-
-  window.deleteCongrats = function (id) {
-    if (confirm("هل تريد حذف التهنئة؟"))
-      remove(ref(db, "congrats/" + id));
-  };
-
-  window.editCongrats = function (id, oldText) {
-    const newText = prompt("عدّل نص تهنئتك:", oldText);
-    if (newText && newText.trim())
-      update(ref(db, "congrats/" + id), {
-        text: newText.trim(),
-        edited: true
-      });
-  };
-
-  onValue(congratsRef, (snap) => {
-    const list = document.getElementById("congrats-list");
-    if (!snap.exists()) {
-      list.innerHTML = `<p style="text-align:center;color:var(--text-dim);padding:20px">
-        كن أول من يهنئ الباحث 🎉</p>`;
-      return;
-    }
-    const items = [];
-    snap.forEach(child => items.unshift({ id: child.key, ...child.val() }));
-    list.innerHTML = items.map(c => `
-      <div class="congrats-item">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-          <span style="font-weight:700;color:var(--teal-light);font-size:.9rem">👤 ${c.name}</span>
-          <div style="display:flex;gap:8px">
-            <button onclick="editCongrats('${c.id}','${c.text.replace(/'/g,"\\'")}')"
-              style="background:rgba(9,127,130,.2);border:1px solid var(--teal);
-                     color:var(--mint);border-radius:6px;padding:3px 10px;
-                     font-size:.7rem;cursor:pointer">✏️ تعديل</button>
-            <button onclick="deleteCongrats('${c.id}')"
-              style="background:rgba(180,30,30,.2);border:1px solid #c0392b;
-                     color:#ff6b6b;border-radius:6px;padding:3px 10px;
-                     font-size:.7rem;cursor:pointer">🗑️ حذف</button>
-          </div>
-        </div>
-        <div class="c-text">${c.text} ${c.edited ? '<span style="font-size:.65rem;color:var(--text-dim)">(معدّل)</span>' : ''}</div>
-        <div class="c-time">${c.time}</div>
+  <div class="congrats-box">
+    <h4>◈ سجل كلمة تهنئة للباحث ◈</h4>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+      <input id="congrats-name" type="text" placeholder="اسمك..."
+        style="background:rgba(255,255,255,.05);border:1px solid rgba(162,134,21,.4);
+               border-radius:10px;padding:12px 18px;color:#fff;
+               font-family:'Cairo',sans-serif;outline:none;font-size:1rem;">
+      <div class="congrats-input-wrap">
+        <input id="congrats-text" type="text" placeholder="اكتب تهنئتك هنا...">
+        <button class="congrats-btn" onclick="submitCongrats()">إرسال</button>
       </div>
-    `).join("");
-  });
-</script>
+    </div>
+    <div id="congrats-count" style="font-size:.8rem;color:var(--text-dim);margin-bottom:8px;text-align:center;"></div>
+    <div id="congrats-list"></div>
+  </div>
 
-<!-- CONGRATS BOX -->
-<div class="congrats-box">
-  <h4>◈ سجل كلمة تهنئة للباحث ◈</h4>
-  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
-    <input id="congrats-name" type="text" placeholder="اسمك..."
-      style="background:rgba(255,255,255,.05);border:1px solid rgba(162,134,21,.4);
-             border-radius:10px;padding:12px 18px;color:#fff;
-             font-family:'Cairo',sans-serif;outline:none">
-    <div class="congrats-input-wrap">
-      <input id="congrats-text" type="text" placeholder="اكتب تهنئتك هنا...">
-      <button class="congrats-btn" onclick="submitCongrats()">إرسال</button>
+  <!-- ADMIN PANEL -->
+  <div style="text-align:center;margin-top:16px;">
+    <div id="admin-status" style="margin-bottom:10px;font-size:.82rem;"></div>
+    <button id="admin-toggle-btn" onclick="showAdminLogin()"
+      style="background:transparent;border:1px solid rgba(9,127,130,.2);
+             color:rgba(9,127,130,.3);border-radius:8px;padding:4px 14px;
+             font-size:.65rem;cursor:pointer;"
+      onmouseover="this.style.borderColor='#0ba8ac';this.style.color='#0ba8ac'"
+      onmouseout="this.style.borderColor='rgba(9,127,130,.2)';this.style.color='rgba(9,127,130,.3)'">
+      ⚙️ إدارة
+    </button>
+    <div id="admin-login-box"
+      style="display:none;margin-top:14px;background:rgba(5,26,27,.9);
+             border:1px solid rgba(9,127,130,.4);border-radius:14px;
+             padding:20px;max-width:340px;margin-left:auto;margin-right:auto;">
+      <p style="font-size:.85rem;color:var(--teal-light);margin-bottom:12px;">🔐 دخول المدير</p>
+      <input id="admin-pass-input" type="password" placeholder="كلمة السر..."
+        onkeydown="if(event.key==='Enter') adminLogin()"
+        style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(9,127,130,.4);
+               border-radius:8px;padding:10px 14px;color:#fff;
+               font-family:'Cairo',sans-serif;outline:none;margin-bottom:10px;">
+      <p id="admin-pass-error" style="display:none;color:#ff6b6b;font-size:.75rem;margin-bottom:8px;">❌ كلمة السر غير صحيحة</p>
+      <button onclick="adminLogin()"
+        style="background:#097f82;color:#fff;border:none;border-radius:8px;
+               padding:8px 24px;font-family:'Cairo',sans-serif;
+               font-weight:700;cursor:pointer;width:100%;">دخول</button>
     </div>
   </div>
-  <div class="congrats-list" id="congrats-list"></div>
-</div>
 
   <!-- SHARE -->
   <div class="share-section">
@@ -607,65 +462,245 @@ body::before {
 
 </div>
 
+<!-- ══ FIREBASE ══ -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, push, onValue, remove, update }
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5xYXrZrrwA6ws8WRyMr2dIHXlWBVn3FE",
+    authDomain: "aaaaaa-5b453.firebaseapp.com",
+    databaseURL: "https://aaaaaa-5b453-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "aaaaaa-5b453",
+    storageBucket: "aaaaaa-5b453.firebasestorage.app",
+    messagingSenderId: "722031681124",
+    appId: "1:722031681124:web:0d45ca14b0413d9954c971"
+  };
+
+  const ADMIN_PASSWORD = "ضع_كلمتك_السرية_هنا"; // ← غيّر هذه
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getDatabase(app);
+  const congratsRef = ref(db, "congrats");
+
+  // ── Token الخاص بهذا الجهاز/المتصفح ──
+  let myToken = localStorage.getItem("congrats_token");
+  if (!myToken) {
+    myToken = "tk_" + Math.random().toString(36).slice(2) + Date.now();
+    localStorage.setItem("congrats_token", myToken);
+  }
+
+  let isAdmin = sessionStorage.getItem("admin_logged") === "yes";
+
+  // ── إرسال تهنئة ──
+  window.submitCongrats = function () {
+    const nameEl = document.getElementById("congrats-name");
+    const textEl = document.getElementById("congrats-text");
+    const name = nameEl.value.trim();
+    const text = textEl.value.trim();
+    if (!name || !text) { alert("من فضلك اكتب اسمك وكلمة التهنئة"); return; }
+    push(congratsRef, {
+      name, text,
+      time: new Date().toLocaleString("ar-EG"),
+      ts: Date.now(),
+      token: myToken
+    });
+    nameEl.value = "";
+    textEl.value = "";
+  };
+
+  // ── حذف: صاحب التعليق أو المدير فقط ──
+  window.deleteCongrats = function (id, token) {
+    const isOwner = (token === myToken);
+    if (!isOwner && !isAdmin) return; // لا يُنفَّذ أصلاً (الزر مخفي)
+    if (confirm("هل تريد حذف هذه التهنئة؟")) {
+      remove(ref(db, "congrats/" + id));
+    }
+  };
+
+  // ── تعديل: صاحب التعليق فقط ──
+  window.editCongrats = function (id, oldText, token) {
+    if (token !== myToken) return; // لا يُنفَّذ أصلاً (الزر مخفي)
+    const newText = prompt("عدّل نص تهنئتك:", oldText);
+    if (newText && newText.trim()) {
+      update(ref(db, "congrats/" + id), { text: newText.trim(), edited: true });
+    }
+  };
+
+  // ── رسم القائمة ──
+  function renderList(snap) {
+    const container = document.getElementById("congrats-list");
+    const countEl   = document.getElementById("congrats-count");
+
+    while (container.firstChild) container.removeChild(container.firstChild);
+
+    if (!snap || !snap.exists()) {
+      const p = document.createElement("p");
+      p.style.cssText = "text-align:center;color:#8ecfcd;padding:20px;";
+      p.textContent = "كن أول من يهنئ الباحث 🎉";
+      container.appendChild(p);
+      countEl.textContent = "";
+      return;
+    }
+
+    const items = [];
+    snap.forEach(function(child) {
+      const v = child.val();
+      v._id = child.key;
+      items.push(v);
+    });
+    items.reverse();
+
+    countEl.textContent = "◈ عدد التهاني: " + items.length + " ◈";
+
+    for (let i = 0; i < items.length; i++) {
+      const c = items[i];
+      const isOwner = (c.token === myToken); // هل هذا تعليقي؟
+
+      const wrap = document.createElement("div");
+      wrap.className = "c-item";
+
+      // ── الرأس ──
+      const header = document.createElement("div");
+      header.className = "c-header";
+
+      const nameSpan = document.createElement("span");
+      nameSpan.className = "c-name";
+      nameSpan.textContent = "👤 " + (c.name || "");
+      header.appendChild(nameSpan);
+
+      // ── الأزرار: تظهر فقط لصاحب التعليق أو المدير ──
+      if (isOwner || isAdmin) {
+        const btns = document.createElement("div");
+        btns.className = "c-btns";
+
+        // زر التعديل: لصاحب التعليق فقط (ليس للمدير)
+        if (isOwner) {
+          const editBtn = document.createElement("button");
+          editBtn.className = "c-btn-edit";
+          editBtn.textContent = "✏️ تعديل";
+          const cId = c._id, cText = c.text, cToken = c.token;
+          editBtn.onclick = function() { window.editCongrats(cId, cText, cToken); };
+          btns.appendChild(editBtn);
+        }
+
+        // زر الحذف: لصاحب التعليق أو المدير
+        const delBtn = document.createElement("button");
+        delBtn.className = "c-btn-del";
+        delBtn.textContent = "🗑️ حذف";
+        const cId2 = c._id, cToken2 = c.token;
+        delBtn.onclick = function() { window.deleteCongrats(cId2, cToken2); };
+        btns.appendChild(delBtn);
+
+        header.appendChild(btns);
+      }
+      // إذا لم يكن صاحب التعليق ولا مديراً → لا تظهر أي أزرار
+
+      wrap.appendChild(header);
+
+      // ── النص ──
+      const textDiv = document.createElement("div");
+      textDiv.className = "c-text";
+      textDiv.textContent = c.text || "";
+      if (c.edited) {
+        const ed = document.createElement("span");
+        ed.className = "c-edited";
+        ed.textContent = " (معدّل)";
+        textDiv.appendChild(ed);
+      }
+      wrap.appendChild(textDiv);
+
+      // ── الوقت ──
+      const timeDiv = document.createElement("div");
+      timeDiv.className = "c-time";
+      timeDiv.textContent = c.time || "";
+      wrap.appendChild(timeDiv);
+
+      container.appendChild(wrap);
+    }
+  }
+
+  // ── الاستماع لـ Firebase في الوقت الفعلي ──
+  onValue(congratsRef, function(snap) { renderList(snap); });
+
+  // ── واجهة المدير ──
+  function updateAdminUI() {
+    const statusEl = document.getElementById("admin-status");
+    statusEl.innerHTML =
+      '<span style="color:#2ecc71">✅ أنت مسجل كمدير — يمكنك حذف أي تعليق</span> ' +
+      '<button onclick="adminLogout()" style="background:rgba(180,30,30,.3);border:1px solid #c0392b;color:#ff6b6b;border-radius:6px;padding:4px 14px;font-size:.75rem;cursor:pointer;font-family:Cairo,sans-serif;">تسجيل خروج</button>';
+    document.getElementById("admin-toggle-btn").style.display = "none";
+  }
+
+  window.adminLogin = function () {
+    const pass = document.getElementById("admin-pass-input").value;
+    if (pass === ADMIN_PASSWORD) {
+      isAdmin = true;
+      sessionStorage.setItem("admin_logged", "yes");
+      document.getElementById("admin-login-box").style.display = "none";
+      document.getElementById("admin-pass-error").style.display = "none";
+      updateAdminUI();
+      // إعادة رسم القائمة لإظهار أزرار الحذف لجميع التعليقات
+      onValue(congratsRef, function(snap) { renderList(snap); });
+    } else {
+      document.getElementById("admin-pass-error").style.display = "block";
+    }
+  };
+
+  window.adminLogout = function () {
+    isAdmin = false;
+    sessionStorage.removeItem("admin_logged");
+    document.getElementById("admin-status").innerHTML = "";
+    document.getElementById("admin-toggle-btn").style.display = "inline-block";
+    onValue(congratsRef, function(snap) { renderList(snap); });
+  };
+
+  window.showAdminLogin = function () {
+    document.getElementById("admin-login-box").style.display = "block";
+    document.getElementById("admin-toggle-btn").style.display = "none";
+    setTimeout(function(){ document.getElementById("admin-pass-input").focus(); }, 100);
+  };
+
+  if (isAdmin) { setTimeout(updateAdminUI, 300); }
+</script>
+
+<!-- ══ Scripts العامة ══ -->
 <script>
-// Neural Background
 const bg = document.getElementById('neural-bg');
-for(let i=0; i<40; i++){
-  const dot = document.createElement('div');
-  dot.className = 'neural-dot';
-  const size = Math.random()*4 + 2;
-  dot.style.width = size+'px';
-  dot.style.height = size+'px';
-  dot.style.left = Math.random()*100+'vw';
-  dot.style.animationDuration = (Math.random()*10 + 10)+'s';
-  dot.style.animationDelay = (Math.random()*5)+'s';
+for(let i=0;i<40;i++){
+  const dot=document.createElement('div');
+  dot.className='neural-dot';
+  const size=Math.random()*4+2;
+  dot.style.width=size+'px';dot.style.height=size+'px';
+  dot.style.left=Math.random()*100+'vw';
+  dot.style.animationDuration=(Math.random()*10+10)+'s';
+  dot.style.animationDelay=(Math.random()*5)+'s';
   bg.appendChild(dot);
 }
 
-// Countdown
-const targetDate = new Date('2026-04-28T10:00:00').getTime();
+const targetDate=new Date('2026-04-28T10:00:00').getTime();
 function updateCountdown(){
-  const now = new Date().getTime();
-  const diff = targetDate - now;
-  if(diff < 0) return;
-  const d = Math.floor(diff/(1000*60*60*24));
-  const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-  const m = Math.floor((diff%(1000*60*60))/(1000*60));
-  const s = Math.floor((diff%(1000*60))/1000);
-  document.getElementById('days').innerText = d.toString().padStart(2,'0');
-  document.getElementById('hours').innerText = h.toString().padStart(2,'0');
-  document.getElementById('minutes').innerText = m.toString().padStart(2,'0');
-  document.getElementById('seconds').innerText = s.toString().padStart(2,'0');
+  const now=new Date().getTime();
+  const diff=targetDate-now;
+  if(diff<0) return;
+  document.getElementById('days').innerText=Math.floor(diff/(1000*60*60*24)).toString().padStart(2,'0');
+  document.getElementById('hours').innerText=Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0');
+  document.getElementById('minutes').innerText=Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0');
+  document.getElementById('seconds').innerText=Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0');
 }
-setInterval(updateCountdown, 1000);
+setInterval(updateCountdown,1000);
 updateCountdown();
 
-// Share
 function shareOn(platform){
-  const url = window.location.href;
-  const text = "دعوة لحضور مناقشة رسالة دكتوراه الباحث محمد فرح";
-  let shareUrl = '';
-  if(platform==='facebook') shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-  if(platform==='x') shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
-  if(platform==='whatsapp') shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(text + " " + url)}`;
-  if(platform==='telegram') shareUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
-  window.open(shareUrl, '_blank');
-}
-
-// Congrats
-const congratsList = [];
-function submitCongrats(){
-  const txt = document.getElementById('congrats-text').value.trim();
-  if(!txt) return;
-  congratsList.unshift({text:txt, time:new Date().toLocaleString('ar-EG')});
-  document.getElementById('congrats-text').value = '';
-  const el = document.getElementById('congrats-list');
-  el.innerHTML = congratsList.map(c => `
-    <div class="congrats-item">
-      <div class="c-text">${c.text}</div>
-      <div class="c-time">${c.time}</div>
-    </div>
-  `).join('');
+  const url=window.location.href;
+  const text="دعوة لحضور مناقشة رسالة دكتوراه الباحث محمد فرح";
+  let shareUrl='';
+  if(platform==='facebook') shareUrl='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
+  if(platform==='x') shareUrl='https://twitter.com/intent/tweet?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text);
+  if(platform==='whatsapp') shareUrl='https://api.whatsapp.com/send?text='+encodeURIComponent(text+" "+url);
+  if(platform==='telegram') shareUrl='https://t.me/share/url?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(text);
+  window.open(shareUrl,'_blank');
 }
 </script>
 </body>
